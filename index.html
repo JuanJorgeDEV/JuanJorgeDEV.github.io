@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Juan Jorge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;700;900&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark fixed-top p-4">
+        <div class="container d-flex justify-content-end">
+            <div class="mode-switch d-flex align-items-center gap-3 glass-panel px-3 py-2 rounded-pill">
+                <span class="text-white small fw-bold">User</span>
+                <div class="form-check form-switch mb-0">
+                    <input class="form-check-input" type="checkbox" id="devModeToggle" style="cursor: pointer;">
+                </div>
+                <span class="text-white small font-monospace">Dev</span>
+            </div>
+        </div>
+    </nav>
+
+    <section
+        class="hero d-flex align-items-center justify-content-center text-center vh-100 position-relative overflow-hidden">
+
+        <div class="hero-bg-animation"></div>
+
+        <div class="container position-relative z-2 content-wrapper transition-fade">
+
+            <div class="d-inline-block mb-4">
+                <p class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 rounded-pill px-4 py-2 fs-6 fw-light backdrop-blur"
+                    id="hero-badge">
+                    👋 Bem-vindo ao meu espaço
+                </p>
+            </div>
+
+            <h1 class="display-1 fw-black text-white mb-2 tracking-tight" id="hero-title">
+                Juan Jorge
+            </h1>
+
+            <h2 class="h3 text-secondary mb-5 fw-light" id="hero-subtitle">
+                Especialista na Stack Microsoft & Soluções em Nuvem
+            </h2>
+
+            <div class="contact-bar d-flex flex-wrap justify-content-center gap-4 mb-5 text-white-50"
+                id="hero-contacts">
+                <a href="mailto:juanjorgedm@gmail.com"
+                    class="contact-item text-decoration-none text-white-50 hover-white">
+                    <i class="bi bi-envelope-at me-2"></i>juanjorgedm@gmail.com
+                </a>
+                <span class="d-none d-md-block">•</span>
+                <a href="tel:+5516982202091" class="contact-item text-decoration-none text-white-50 hover-white">
+                    <i class="bi bi-whatsapp me-2"></i>(16) 98220-2091
+                </a>
+                <span class="d-none d-md-block">•</span>
+                <div class="d-flex gap-3">
+                    <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" class="social-icon"
+                        title="LinkedIn">
+                        <i class="bi bi-linkedin fs-5"></i>
+                    </a>
+                    <a href="https://github.com/JuanJorgeDEV" target="_blank" class="social-icon" title="GitHub">
+                        <i class="bi bi-github fs-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3" id="hero-buttons">
+                <a href="#projetos"
+                    class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg glow-on-hover">
+                    Explorar Projetos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 position-relative section-skills" id="skills">
+        <div class="container py-5">
+            <div class="row g-5">
+
+                <div class="col-lg-5 mb-4 scroll-reveal">
+                    <h3 class="fw-bold mb-4 text-white"><span class="text-primary">#</span> Kernel Specs (Soft Skills)
+                    </h3>
+                    <div class="card glass-card p-4 h-90">
+                        <ul class="list-unstyled font-monospace text-secondary mb-0">
+                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i class="bi bi-cpu me-2"></i>Proatividade</span>
+                                <span
+                                    class="badge bg-success bg-opacity-25 text-success border border-success">v.AlwaysOn</span>
+                            </li>
+                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i class="bi bi-hdd-network me-2"></i>Autonomia</span>
+                                <span
+                                    class="badge bg-info bg-opacity-25 text-info border border-info">v.SelfHosted</span>
+                            </li>
+                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i class="bi bi-shield-check me-2"></i>Responsabilidade</span>
+                                <span
+                                    class="badge bg-warning bg-opacity-25 text-warning border border-warning">v.Stable</span>
+                            </li>
+                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i class="bi bi-clock-history me-2"></i>Disciplina</span>
+                                <span class="badge bg-primary bg-opacity-25 text-primary border border-primary">v.LTS
+                                    (Long Term Support)</span>
+                            </li>
+                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i class="bi bi-infinity me-2"></i>Aprendizado Contínuo</span>
+                                <span class="badge bg-success bg-opacity-25 text-success border border-success"
+                                    title="Integração e Entrega Contínua de Conhecimento">v.CI/CD Pipeline</span>
+                            </li>
+
+                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i class="bi bi-shield-lock-fill me-2"></i>Inteligência
+                                    Emocional</span>
+                                <span class="badge bg-info bg-opacity-25 text-info border border-info"
+                                    title="Sistema que continua operando mesmo com falhas">v.FaultTolerant</span>
+                            </li>
+
+                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i class="bi bi-bug-fill me-2"></i>Resolução de
+                                    Problemas</span>
+                                <span class="badge bg-warning bg-opacity-25 text-warning border border-warning"
+                                    title="Acesso total à raiz do problema">v.RootAccess</span>
+                            </li>
+
+                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i
+                                        class="bi bi-arrows-fullscreen me-2"></i>Adaptabilidade</span>
+                                <span class="badge bg-primary bg-opacity-25 text-primary border border-primary"
+                                    title="Se ajusta a qualquer tamanho de tela/cenário">v.Responsive</span>
+                            </li>
+
+                            <li class="d-flex justify-content-between align-items-center item-hover">
+                                <span class="text-white"><i class="bi bi-people-fill me-2"></i>Trabalho em Equipe</span>
+                                <span class="badge bg-light bg-opacity-10 text-light border border-secondary"
+                                    title="Código aberto e transparente">v.OpenSource</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 scroll-reveal delay-100">
+                    <h3 class="fw-bold mb-4 text-white">Stack Tecnológico</h3>
+
+                    <div class="mb-4">
+                        <h6 class="text-secondary text-uppercase small ls-2 mb-3">Microsoft Ecosystem & Data</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="skill-pill border-blue"><i class="bi bi-microsoft me-1"></i> .NET 8 / C#</div>
+                            <div class="skill-pill border-blue"><i class="bi bi-database me-1"></i> SQL Server</div>
+                            <div class="skill-pill border-warning"><i class="bi bi-bar-chart-fill me-1"></i> Power BI
+                            </div>
+                            <div class="skill-pill border-warning">PL-900 (Power Platform)</div>
+                            <div class="skill-pill border-warning">PL-100 (App Maker)</div>
+                            <div class="skill-pill border-blue">Data Analytics</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-secondary text-uppercase small ls-2 mb-3">Cloud & Infra (Multi-Cloud)</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="skill-pill border-orange"><i class="bi bi-amazon me-1"></i> AWS Cloud
+                                Practitioner</div>
+                            <div class="skill-pill border-red"><i class="bi bi-google me-1"></i> Google Cloud Data
+                                Science</div>
+                            <div class="skill-pill border-purple"><i class="bi bi-shield-lock me-1"></i> Cibersegurança
+                            </div>
+                            <div class="skill-pill border-cyan"><i class="bi bi-router me-1"></i> IoT & Integrações
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h6 class="text-secondary text-uppercase small ls-2 mb-3">Fundamentos Sólidos</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="skill-pill border-gray"><i class="bi bi-cup-hot me-1"></i> Java Fundamentals
+                                (Oracle)</div>
+                            <div class="skill-pill border-gray"><i class="bi bi-code-slash me-1"></i> Python Logic</div>
+                            <div class="skill-pill border-gray"><i class="bi bi-phone me-1"></i> Flutter</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 position-relative" id="jornada">
+        <div class="container py-5">
+            <div class="text-center mb-5 scroll-reveal">
+                <h2 class="display-5 fw-bold text-white">Minha Jornada</h2>
+                <p class="text-secondary font-monospace">> git log --graph --oneline</p>
+            </div>
+
+            <div class="timeline-wrapper position-relative mx-auto" style="max-width: 800px;">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item d-flex gap-4 mb-5 scroll-reveal delay-100">
+                    <div class="timeline-marker bg-primary glow-primary"></div>
+                    <div class="timeline-content glass-card p-4 w-100">
+                        <span class="badge bg-primary mb-2">HEAD -> main</span>
+                        <h4 class="text-white fw-bold">Tecnólogo em Análise e Desenvolvimento de Sistemas</h4>
+                        <p class="text-primary mb-1">SENAI | 2026 (Em andamento)</p>
+                        <p class="text-secondary small">Início da graduação tecnológica focada em arquitetura de
+                            software e engenharia moderna.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item d-flex gap-4 mb-5 scroll-reveal delay-200">
+                    <div class="timeline-marker bg-success glow-success"></div>
+                    <div class="timeline-content glass-card p-4 w-100">
+                        <span class="badge bg-success mb-2">Commit: a3f92d (TCC Success)</span>
+                        <h4 class="text-white fw-bold">Conclusão Técnica & TCC</h4>
+                        <p class="text-success mb-1">SENAI | Formado em 2025</p>
+                        <p class="text-secondary small">Entrega do TCC: Sistema de Gestão de Ordens de Serviço
+                            (Fullstack .NET 8, EF Core, Razor). Projeto com deploy realizado e documentação completa.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item d-flex gap-4 scroll-reveal delay-300">
+                    <div class="timeline-marker bg-info glow-info"></div>
+                    <div class="timeline-content glass-card p-4 w-100">
+                        <span class="badge bg-info text-dark mb-2">Initial Commit: "The Sprint"</span>
+                        <h4 class="text-white fw-bold">Ano Intensivo de Certificações</h4>
+                        <p class="text-info mb-1">Multi-certificações | 2024</p>
+                        <p class="text-secondary small mb-3">Ano focado em expandir o horizonte tecnológico além do
+                            código:</p>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-dark border border-secondary text-secondary">AWS Cloud</span>
+                            <span class="badge bg-dark border border-secondary text-secondary">Google Data</span>
+                            <span class="badge bg-dark border border-secondary text-secondary">Power Platform</span>
+                            <span class="badge bg-dark border border-secondary text-secondary">Java/Oracle</span>
+                            <span class="badge bg-dark border border-secondary text-secondary">IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 position-relative" id="projetos">
+        <div class="container py-5">
+            
+            <div class="d-flex justify-content-between align-items-end mb-5 scroll-reveal">
+                <div>
+                    <h2 class="display-5 fw-bold text-white">Projetos em Destaque</h2>
+                    <p class="text-secondary font-monospace mb-0">> ls ./workspace/production</p>
+                </div>
+                <a href="https://github.com/JuanJorgeDEV" target="_blank" class="btn btn-outline-secondary rounded-pill d-none d-md-block">
+                    <i class="bi bi-github me-2"></i>Ver tudo no GitHub
+                </a>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-200">
+                    <div class="card project-card h-100 border-0 bg-transparent">
+                        <div class="project-image-wrapper">
+                            <img src="images/PortalReceitas.png" alt="Red Social Recipes" class="img-fluid project-img">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-2">
+                                    <a href="https://github.com/JuanJorgeDEV/ProjReceitas.git" class="btn btn-primary rounded-circle icon-btn"><i class="bi bi-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body glass-card mt-n3 position-relative z-2 mx-2 rounded-bottom border-top-0">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-warning bg-opacity-10 text-warning border border-warning">Social Web</span>
+                                <small class="text-secondary font-monospace">v1.0-Legacy</small>
+                            </div>
+                            <h4 class="text-white fw-bold mb-2">Social Recipes</h4>
+                            <p class="text-secondary small mb-3">
+                                Plataforma colaborativa estilo rede social. Usuários compartilham receitas, avaliam pratos e interagem via comentários. Arquitetura MVC pura focada em performance.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="skill-tag">.NET 6</span>
+                                <span class="skill-tag">MVC Pattern</span>
+                                <span class="skill-tag">Raw SQL</span>
+                                <span class="skill-tag">Auth</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-100">
+                    <div class="card project-card h-100 border-0 bg-transparent">
+                        <div class="project-image-wrapper">
+                            <img src="images/imagem1.jpg" alt="Sistema de Gestão SENAI" class="img-fluid project-img">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-2">
+                                    <a href="https://github.com/JuanJorgeDEV/Gest-oOS.git" class="btn btn-primary rounded-circle icon-btn" title="Código Fonte"><i class="bi bi-code-slash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body glass-card mt-n3 position-relative z-2 mx-2 rounded-bottom border-top-0">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-success bg-opacity-10 text-success border border-success">Enterprise</span>
+                                <small class="text-secondary font-monospace">v2.0.1</small>
+                            </div>
+                            <h4 class="text-white fw-bold mb-2">GestaoOS - Gestão de Ativos</h4>
+                            <p class="text-secondary small mb-3">
+                                Sistema centralizado para controle de chamados e ativos do SENAI. Inclui mapa interativo de laboratórios, workflow de aprovação e dashboard de KPIs para gestão.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="skill-tag">.NET 8</span>
+                                <span class="skill-tag">EF Core</span>
+                                <span class="skill-tag">KPIs</span>
+                                <span class="skill-tag">Razor Pages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <div class="col-lg-4 col-md-6 scroll-reveal delay-300">
+                    <div class="card project-card h-100 border-0 bg-transparent">
+                        <div class="project-image-wrapper bg-dark d-flex align-items-center justify-content-center position-relative overflow-hidden">
+                            <div class="matrix-bg"></div>
+                            <i class="bi bi-rocket-takeoff-fill text-secondary opacity-25" style="font-size: 5rem;"></i>
+                            
+                            <div class="project-overlay" style="opacity: 1;">
+                                <span class="badge bg-black border border-secondary text-white px-3 py-2">
+                                    <i class="bi bi-hourglass-split me-2"></i>Em Breve
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="card-body glass-card mt-n3 position-relative z-2 mx-2 rounded-bottom border-top-0 border-primary-glow">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary">Próximo Desafio</span>
+                                <small class="text-primary font-monospace blink">Loading...</small>
+                            </div>
+                            <h4 class="text-white fw-bold mb-2">Coming son...</h4>
+                            <p class="text-secondary small mb-3">
+                                Um novo projeto está sendo desenvolvido para elevar o nível do portfólio. Focado em arquitetura robusta e solução de problemas reais. Aguarde novidades!
+                            </p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="skill-tag border-primary font-monospace">???</span>
+                                <span class="skill-tag border-primary">Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="bg-black py-5 border-top border-dark">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="font-monospace text-secondary mb-0">
+                        <span class="text-success">user@portfolio:~$</span> build status: <span
+                            class="text-white">success</span><br>
+                        <span class="text-success">user@portfolio:~$</span> last update: <span
+                            class="text-white">2026</span>
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-secondary small mb-0">Desenvolvido por Juan Jorge com HTML, CSS, JS e muito ☕</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

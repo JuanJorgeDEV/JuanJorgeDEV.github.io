@@ -1,0 +1,258 @@
+:root {
+    --bg-dark: #0d1117;
+    --primary-glow: #2f81f7;
+    --dev-green: #3fb950;
+    --transition-speed: 0.4s;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #e6edf3;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Outfit', sans-serif;
+}
+
+.fw-black { font-weight: 900; }
+.tracking-tight { letter-spacing: -2px; }
+
+.hero {
+    background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%);
+    z-index: 1;
+}
+
+.hero-bg-animation {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(31, 111, 235, 0.15), transparent 60%);
+    animation: pulseMove 15s infinite alternate ease-in-out;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes pulseMove {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, -20px) scale(1.1); }
+}
+
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-wrapper {
+    transition: opacity var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-wrapper.fading {
+    opacity: 0;
+    transform: translateY(10px); 
+}
+
+.hover-white:hover {
+    color: #ffffff !important;
+    transition: color 0.3s;
+}
+
+.social-icon {
+    color: rgba(255,255,255,0.6);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.social-icon:hover {
+    color: #fff;
+    transform: scale(1.2) rotate(5deg);
+}
+
+.glow-on-hover {
+    transition: all 0.3s ease;
+}
+.glow-on-hover:hover {
+    box-shadow: 0 0 20px rgba(47, 129, 247, 0.6) !important;
+    transform: translateY(-2px);
+}
+
+.font-monospace {
+    font-family: 'Fira Code', monospace !important;
+}
+
+.dev-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.glass-card {
+    background: rgba(22, 27, 34, 0.7); 
+    backdrop-filter: blur(12px);         
+    border: 1px solid rgba(48, 54, 61, 0.5);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px); 
+    border-color: rgba(56, 139, 253, 0.4); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+
+.skill-pill {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 16px;
+    border-radius: 50px;
+    color: #e6edf3;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid transparent; 
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.skill-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.border-blue { border-color: rgba(56, 139, 253, 0.5); }   /* Microsoft */
+.border-orange { border-color: rgba(255, 165, 0, 0.5); }  /* AWS */
+.border-red { border-color: rgba(234, 67, 53, 0.5); }     /* Google */
+.border-purple { border-color: rgba(163, 113, 247, 0.5); }/* Security */
+.border-cyan { border-color: rgba(0, 255, 255, 0.5); }    /* IoT */
+.border-gray { border-color: rgba(128, 128, 128, 0.5); }  /* Base */
+
+.timeline-line {
+    position: absolute;
+    left: 24px; 
+    top: 20px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #238636 0%, #30363d 100%); 
+    z-index: 0;
+}
+
+.timeline-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: 20px; 
+    margin-left: 15px; 
+    z-index: 1; 
+    flex-shrink: 0;
+}
+
+.glow-primary { box-shadow: 0 0 15px rgba(13, 110, 253, 0.6); }
+.glow-success { box-shadow: 0 0 15px rgba(25, 135, 84, 0.6); }
+.glow-info    { box-shadow: 0 0 15px rgba(13, 202, 240, 0.6); }
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Começa 50px para baixo */
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+
+.project-image-wrapper {
+    height: 220px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(48, 54, 61, 0.5);
+    border-bottom: none;
+    background-color: #000;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: top center; 
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.1); 
+}
+
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 17, 23, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1; 
+}
+
+
+.icon-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.icon-btn:hover {
+    transform: scale(1.1);
+}
+
+
+.skill-tag {
+    font-size: 0.75rem;
+    color: #8b949e;
+    background: rgba(255,255,255,0.05);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    border: 1px solid transparent;
+}
+
+.project-card:hover .skill-tag {
+    color: #c9d1d9;
+    border-color: rgba(255,255,255,0.1);
+}
+
+.border-primary-glow {
+    border-color: rgba(47, 129, 247, 0.4) !important;
+    box-shadow: 0 5px 15px rgba(47, 129, 247, 0.1);
+}
+
+
+.matrix-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(32, 255, 77, .05) 25%, rgba(32, 255, 77, .05) 26%, transparent 27%, transparent 74%, rgba(32, 255, 77, .05) 75%, rgba(32, 255, 77, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(32, 255, 77, .05) 25%, rgba(32, 255, 77, .05) 26%, transparent 27%, transparent 74%, rgba(32, 255, 77, .05) 75%, rgba(32, 255, 77, .05) 76%, transparent 77%, transparent);
+    background-size: 30px 30px;
+}
+
+.blink {
+    animation: blinker 1.5s linear infinite;
+}
+@keyframes blinker { 50% { opacity: 0; } }
