@@ -1,187 +1,336 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Juan Jorge</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;700;900&family=Inter:wght@400;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Juan Jorge — Especialista na Stack Microsoft & Soluções em Nuvem. Portfólio de projetos, skills e trajetória.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
 
-    <nav class="navbar navbar-dark fixed-top p-4">
-        <div class="container d-flex justify-content-end">
-            <div class="mode-switch d-flex align-items-center gap-3 glass-panel px-3 py-2 rounded-pill">
-                <span class="text-white small fw-bold">User</span>
-                <div class="form-check form-switch mb-0">
-                    <input class="form-check-input" type="checkbox" id="devModeToggle" style="cursor: pointer;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary shadow-sm" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold font-monospace" href="#home">
+                <span class="text-primary">&lt;</span>Juan Jorge<span class="text-primary">/&gt;</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+                aria-controls="navContent" aria-expanded="false" aria-label="Abrir navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#jornada">Jornada</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" rel="noopener"
+                        class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/JuanJorgeDEV" target="_blank" rel="noopener"
+                        class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="#contato" class="btn btn-outline-primary btn-sm rounded-pill px-3">Contato</a>
                 </div>
-                <span class="text-white small font-monospace">Dev</span>
             </div>
         </div>
     </nav>
 
-    <section
-        class="hero d-flex align-items-center justify-content-center text-center vh-100 position-relative overflow-hidden">
+    <!-- Hero -->
+    <section class="d-flex align-items-center justify-content-center text-center vh-100 bg-body" id="home">
+        <div class="container">
 
-        <div class="hero-bg-animation"></div>
+            <!-- Toggle User / Dev — Bootstrap nav-pills + Tab (sem JS customizado) -->
+            <ul class="nav nav-pills bg-body-secondary rounded-pill p-1 d-inline-flex mb-4 shadow-sm" id="modeTab"
+                role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active rounded-pill px-3 py-1 small" id="user-tab" data-bs-toggle="tab"
+                        data-bs-target="#user-pane" type="button" role="tab" aria-controls="user-pane"
+                        aria-selected="true">
+                        <i class="bi bi-person-fill me-1"></i>User
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-pill px-3 py-1 small font-monospace" id="dev-tab"
+                        data-bs-toggle="tab" data-bs-target="#dev-pane" type="button" role="tab"
+                        aria-controls="dev-pane" aria-selected="false">
+                        <i class="bi bi-code-slash me-1"></i>Dev
+                    </button>
+                </li>
+            </ul>
 
-        <div class="container position-relative z-2 content-wrapper transition-fade">
-
-            <div class="d-inline-block mb-4">
-                <p class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 rounded-pill px-4 py-2 fs-6 fw-light backdrop-blur"
-                    id="hero-badge">
-                    👋 Bem-vindo ao meu espaço
-                </p>
-            </div>
-
-            <h1 class="display-1 fw-black text-white mb-2 tracking-tight" id="hero-title">
-                Juan Jorge
-            </h1>
-
-            <h2 class="h3 text-secondary mb-5 fw-light" id="hero-subtitle">
-                Especialista na Stack Microsoft & Soluções em Nuvem
-            </h2>
-
-            <div class="contact-bar d-flex flex-wrap justify-content-center gap-4 mb-5 text-white-50"
-                id="hero-contacts">
-                <a href="mailto:juanjorgedm@gmail.com"
-                    class="contact-item text-decoration-none text-white-50 hover-white">
-                    <i class="bi bi-envelope-at me-2"></i>juanjorgedm@gmail.com
-                </a>
-                <span class="d-none d-md-block">•</span>
-                <a href="tel:+5516982202091" class="contact-item text-decoration-none text-white-50 hover-white">
-                    <i class="bi bi-whatsapp me-2"></i>(16) 98220-2091
-                </a>
-                <span class="d-none d-md-block">•</span>
-                <div class="d-flex gap-3">
-                    <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" class="social-icon"
-                        title="LinkedIn">
-                        <i class="bi bi-linkedin fs-5"></i>
+            <div class="tab-content" id="modeTabContent">
+                <div class="tab-pane fade show active" id="user-pane" role="tabpanel" aria-labelledby="user-tab"
+                    tabindex="0">
+                    <h1 class="display-1 fw-bold text-body-emphasis mb-2">Juan Jorge</h1>
+                    <h2 class="h3 text-secondary mb-5 fw-light">
+                        Especialista na Stack Microsoft &amp; Soluções em Nuvem
+                    </h2>
+                    <a href="#projetos" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow">
+                        Explorar Projetos
                     </a>
-                    <a href="https://github.com/JuanJorgeDEV" target="_blank" class="social-icon" title="GitHub">
-                        <i class="bi bi-github fs-5"></i>
+                </div>
+
+                <div class="tab-pane fade" id="dev-pane" role="tabpanel" aria-labelledby="dev-tab" tabindex="0">
+                    <p class="badge bg-black border border-success text-success rounded-0 px-3 py-2 font-monospace mb-4">
+                        System.Status: <span class="text-success">Online</span>
+                    </p>
+                    <h1 class="display-5 fw-bold text-body-emphasis mb-2 font-monospace">
+                        <span class="text-primary">var</span> Dev <span class="text-body-emphasis">=</span>
+                        <span class="text-success">new</span> <span class="text-warning">JuanJorge</span>();
+                    </h1>
+                    <h2 class="h5 text-secondary mb-5 font-monospace">
+                        // Stack Microsoft &amp; Soluções em Nuvem carregadas...
+                    </h2>
+                    <a href="#projetos" class="btn btn-outline-success btn-lg px-5 py-3 font-monospace fw-bold">
+                        Execute.Init()
                     </a>
                 </div>
             </div>
 
-            <div class="d-flex justify-content-center gap-3" id="hero-buttons">
-                <a href="#projetos"
-                    class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg glow-on-hover">
-                    Explorar Projetos
+            <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+                <a href="mailto:juanjorgedm@gmail.com"
+                    class="text-decoration-none link-secondary link-opacity-75 link-opacity-100-hover">
+                    <i class="bi bi-envelope-at me-2"></i>juanjorgedm@gmail.com
                 </a>
+                <span class="d-none d-md-block text-secondary">•</span>
+                <a href="tel:+5516982202091"
+                    class="text-decoration-none link-secondary link-opacity-75 link-opacity-100-hover">
+                    <i class="bi bi-whatsapp me-2"></i>(16) 98220-2091
+                </a>
+                <span class="d-none d-md-block text-secondary">•</span>
+                <div class="d-flex gap-3">
+                    <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" rel="noopener"
+                        class="link-secondary link-opacity-75 link-opacity-100-hover fs-5" title="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/JuanJorgeDEV" target="_blank" rel="noopener"
+                        class="link-secondary link-opacity-75 link-opacity-100-hover fs-5" title="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5 position-relative section-skills" id="skills">
+    <!-- Sobre mim -->
+    <section class="py-5" id="sobre">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-4 text-center">
+                    <div class="rounded-circle bg-body-secondary border border-primary border-opacity-50 mx-auto d-flex align-items-center justify-content-center overflow-hidden"
+                        style="width:220px;height:220px;">
+                        <img src="images/perfil.jpg" alt="Foto de Juan Jorge" class="w-100 h-100"
+                            style="object-fit:cover;"
+                            onerror="this.classList.add('d-none'); this.nextElementSibling.classList.remove('d-none');">
+                        <i class="bi bi-person-badge display-1 text-primary d-none"></i>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <h6 class="text-primary text-uppercase fw-bold mb-2 font-monospace">&lt; Sobre mim /&gt;</h6>
+                    <h2 class="display-6 fw-bold text-body-emphasis mb-3">Quem é Juan Jorge?</h2>
+                    <p class="text-secondary">
+                        Graduando em Tecnólogo em Análise e Desenvolvimento de Sistemas, apaixonado por transformar
+                        problemas reais em soluções bem arquitetadas. Construí minha base no ecossistema Microsoft
+                        (.NET, C#, SQL Server, Power Platform) e expandi horizontes com certificações multi-cloud,
+                        dados e segurança. Gosto de aprender rápido, entregar com qualidade e documentar tudo como
+                        se outra pessoa fosse dar manutenção no meu código amanhã — porque, no fundo, essa pessoa
+                        costuma ser eu mesmo daqui a seis meses.
+                    </p>
+                    <div class="row row-cols-2 row-cols-md-4 g-3 mt-2">
+                        <div class="col">
+                            <div class="card bg-body-secondary border-secondary-subtle h-100 text-center py-3">
+                                <div class="fs-3 fw-bold text-primary font-monospace">6+</div>
+                                <div class="text-secondary small">Certificações</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-body-secondary border-secondary-subtle h-100 text-center py-3">
+                                <div class="fs-3 fw-bold text-success font-monospace">1</div>
+                                <div class="text-secondary small">TCC Entregue</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-body-secondary border-secondary-subtle h-100 text-center py-3">
+                                <div class="fs-3 fw-bold text-info font-monospace">3</div>
+                                <div class="text-secondary small">Clouds (Azure/AWS/GCP)</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-body-secondary border-secondary-subtle h-100 text-center py-3">
+                                <div class="fs-3 fw-bold text-warning font-monospace">∞</div>
+                                <div class="text-secondary small">Vontade de aprender</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="py-5" id="skills">
         <div class="container py-5">
             <div class="row g-5">
 
-                <div class="col-lg-5 mb-4 scroll-reveal">
-                    <h3 class="fw-bold mb-4 text-white"><span class="text-primary">#</span> Kernel Specs (Soft Skills)
-                    </h3>
-                    <div class="card glass-card p-4 h-90">
-                        <ul class="list-unstyled font-monospace text-secondary mb-0">
-                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i class="bi bi-cpu me-2"></i>Proatividade</span>
-                                <span
-                                    class="badge bg-success bg-opacity-25 text-success border border-success">v.AlwaysOn</span>
-                            </li>
-                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i class="bi bi-hdd-network me-2"></i>Autonomia</span>
-                                <span
-                                    class="badge bg-info bg-opacity-25 text-info border border-info">v.SelfHosted</span>
-                            </li>
-                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i class="bi bi-shield-check me-2"></i>Responsabilidade</span>
-                                <span
-                                    class="badge bg-warning bg-opacity-25 text-warning border border-warning">v.Stable</span>
-                            </li>
-                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i class="bi bi-clock-history me-2"></i>Disciplina</span>
-                                <span class="badge bg-primary bg-opacity-25 text-primary border border-primary">v.LTS
-                                    (Long Term Support)</span>
-                            </li>
-                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i class="bi bi-infinity me-2"></i>Aprendizado Contínuo</span>
-                                <span class="badge bg-success bg-opacity-25 text-success border border-success"
-                                    title="Integração e Entrega Contínua de Conhecimento">v.CI/CD Pipeline</span>
-                            </li>
-
-                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i class="bi bi-shield-lock-fill me-2"></i>Inteligência
-                                    Emocional</span>
-                                <span class="badge bg-info bg-opacity-25 text-info border border-info"
-                                    title="Sistema que continua operando mesmo com falhas">v.FaultTolerant</span>
-                            </li>
-
-                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i class="bi bi-bug-fill me-2"></i>Resolução de
-                                    Problemas</span>
-                                <span class="badge bg-warning bg-opacity-25 text-warning border border-warning"
-                                    title="Acesso total à raiz do problema">v.RootAccess</span>
-                            </li>
-
-                            <li class="mb-4 d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i
-                                        class="bi bi-arrows-fullscreen me-2"></i>Adaptabilidade</span>
-                                <span class="badge bg-primary bg-opacity-25 text-primary border border-primary"
-                                    title="Se ajusta a qualquer tamanho de tela/cenário">v.Responsive</span>
-                            </li>
-
-                            <li class="d-flex justify-content-between align-items-center item-hover">
-                                <span class="text-white"><i class="bi bi-people-fill me-2"></i>Trabalho em Equipe</span>
-                                <span class="badge bg-light bg-opacity-10 text-light border border-secondary"
-                                    title="Código aberto e transparente">v.OpenSource</span>
-                            </li>
-                        </ul>
+                <div class="col-lg-5 mb-4">
+                    <h3 class="fw-bold mb-4 text-body-emphasis"><span class="text-primary">#</span> Kernel Specs
+                        (Soft Skills)</h3>
+                    <div class="card bg-body-secondary border-secondary-subtle shadow-sm">
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-cpu me-2 text-primary"></i>Proatividade</span>
+                                <span class="badge text-bg-success rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Sempre pronto pro próximo commit, sem esperar sprint planning">v.AlwaysOn</span>
+                            </div>
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-hdd-network me-2 text-info"></i>Autonomia</span>
+                                <span class="badge text-bg-info rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Roda sem supervisão constante, com bom logging do progresso">v.SelfHosted</span>
+                            </div>
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-shield-check me-2 text-warning"></i>Responsabilidade</span>
+                                <span class="badge text-bg-warning rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="SLA pessoal de alta disponibilidade e compromisso com prazos">v.Stable</span>
+                            </div>
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-clock-history me-2 text-primary"></i>Disciplina</span>
+                                <span class="badge text-bg-primary rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Sem breaking changes na rotina — consistência é a feature principal">v.LTS (Long Term Support)</span>
+                            </div>
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-infinity me-2 text-success"></i>Aprendizado Contínuo</span>
+                                <span class="badge text-bg-success rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Integração e Entrega Contínua de Conhecimento">v.CI/CD Pipeline</span>
+                            </div>
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-shield-lock-fill me-2 text-info"></i>Inteligência Emocional</span>
+                                <span class="badge text-bg-info rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Sistema que continua operando mesmo com falhas">v.FaultTolerant</span>
+                            </div>
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-bug-fill me-2 text-warning"></i>Resolução de Problemas</span>
+                                <span class="badge text-bg-warning rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Acesso total à raiz do problema">v.RootAccess</span>
+                            </div>
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-arrows-fullscreen me-2 text-primary"></i>Adaptabilidade</span>
+                                <span class="badge text-bg-primary rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Se ajusta a qualquer tamanho de tela/cenário">v.Responsive</span>
+                            </div>
+                            <div class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+                                <span class="text-body-emphasis"><i class="bi bi-people-fill me-2 text-secondary"></i>Trabalho em Equipe</span>
+                                <span class="badge text-bg-secondary rounded-pill" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Código aberto e transparente">v.OpenSource</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-7 scroll-reveal delay-100">
-                    <h3 class="fw-bold mb-4 text-white">Stack Tecnológico</h3>
+                <div class="col-lg-7">
+                    <h3 class="fw-bold mb-4 text-body-emphasis">Stack Tecnológico</h3>
 
                     <div class="mb-4">
-                        <h6 class="text-secondary text-uppercase small ls-2 mb-3">Microsoft Ecosystem & Data</h6>
-                        <div class="d-flex flex-wrap gap-2">
-                            <div class="skill-pill border-blue"><i class="bi bi-microsoft me-1"></i> .NET 8 / C#</div>
-                            <div class="skill-pill border-blue"><i class="bi bi-database me-1"></i> SQL Server</div>
-                            <div class="skill-pill border-warning"><i class="bi bi-bar-chart-fill me-1"></i> Power BI
+                        <h6 class="text-secondary text-uppercase small mb-3">Nível de Domínio</h6>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-body-emphasis small"><i class="bi bi-microsoft me-1"></i> .NET / C#</span>
+                                <span class="text-secondary small font-monospace">90%</span>
                             </div>
-                            <div class="skill-pill border-warning">PL-900 (Power Platform)</div>
-                            <div class="skill-pill border-warning">PL-100 (App Maker)</div>
-                            <div class="skill-pill border-blue">Data Analytics</div>
+                            <div class="progress" role="progressbar" aria-label=".NET / C#" aria-valuenow="90"
+                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                                    style="width:90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-body-emphasis small"><i class="bi bi-database me-1"></i> SQL Server</span>
+                                <span class="text-secondary small font-monospace">85%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="SQL Server" aria-valuenow="85"
+                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                                    style="width:85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-body-emphasis small"><i class="bi bi-cloud me-1"></i> Cloud (AWS / GCP)</span>
+                                <span class="text-secondary small font-monospace">70%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Cloud" aria-valuenow="70"
+                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                    style="width:70%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-body-emphasis small"><i class="bi bi-bar-chart-fill me-1"></i> Power BI / Power Platform</span>
+                                <span class="text-secondary small font-monospace">80%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Power BI" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                    style="width:80%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-body-emphasis small"><i class="bi bi-shield-lock me-1"></i> Cibersegurança</span>
+                                <span class="text-secondary small font-monospace">65%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Cibersegurança" aria-valuenow="65"
+                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                    style="width:65%"></div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <h6 class="text-secondary text-uppercase small ls-2 mb-3">Cloud & Infra (Multi-Cloud)</h6>
+                        <h6 class="text-secondary text-uppercase small mb-3">Microsoft Ecosystem &amp; Data</h6>
                         <div class="d-flex flex-wrap gap-2">
-                            <div class="skill-pill border-orange"><i class="bi bi-amazon me-1"></i> AWS Cloud
-                                Practitioner</div>
-                            <div class="skill-pill border-red"><i class="bi bi-google me-1"></i> Google Cloud Data
-                                Science</div>
-                            <div class="skill-pill border-purple"><i class="bi bi-shield-lock me-1"></i> Cibersegurança
-                            </div>
-                            <div class="skill-pill border-cyan"><i class="bi bi-router me-1"></i> IoT & Integrações
-                            </div>
+                            <span class="badge rounded-pill text-bg-dark border border-primary-subtle px-3 py-2"><i class="bi bi-microsoft me-1"></i> .NET 8 / C#</span>
+                            <span class="badge rounded-pill text-bg-dark border border-primary-subtle px-3 py-2"><i class="bi bi-database me-1"></i> SQL Server</span>
+                            <span class="badge rounded-pill text-bg-dark border border-warning-subtle px-3 py-2"><i class="bi bi-bar-chart-fill me-1"></i> Power BI</span>
+                            <span class="badge rounded-pill text-bg-dark border border-warning-subtle px-3 py-2">PL-900 (Power Platform)</span>
+                            <span class="badge rounded-pill text-bg-dark border border-warning-subtle px-3 py-2">PL-100 (App Maker)</span>
+                            <span class="badge rounded-pill text-bg-dark border border-primary-subtle px-3 py-2">Data Analytics</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-secondary text-uppercase small mb-3">Cloud &amp; Infra (Multi-Cloud)</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge rounded-pill text-bg-dark border border-warning-subtle px-3 py-2"><i class="bi bi-amazon me-1"></i> AWS Cloud Practitioner</span>
+                            <span class="badge rounded-pill text-bg-dark border border-danger-subtle px-3 py-2"><i class="bi bi-google me-1"></i> Google Cloud Data Science</span>
+                            <span class="badge rounded-pill text-bg-dark border border-info-subtle px-3 py-2"><i class="bi bi-shield-lock me-1"></i> Cibersegurança</span>
+                            <span class="badge rounded-pill text-bg-dark border border-info-subtle px-3 py-2"><i class="bi bi-router me-1"></i> IoT &amp; Integrações</span>
                         </div>
                     </div>
 
                     <div>
-                        <h6 class="text-secondary text-uppercase small ls-2 mb-3">Fundamentos Sólidos</h6>
+                        <h6 class="text-secondary text-uppercase small mb-3">Fundamentos Sólidos</h6>
                         <div class="d-flex flex-wrap gap-2">
-                            <div class="skill-pill border-gray"><i class="bi bi-cup-hot me-1"></i> Java Fundamentals
-                                (Oracle)</div>
-                            <div class="skill-pill border-gray"><i class="bi bi-code-slash me-1"></i> Python Logic</div>
-                            <div class="skill-pill border-gray"><i class="bi bi-phone me-1"></i> Flutter</div>
+                            <span class="badge rounded-pill text-bg-dark border border-secondary-subtle px-3 py-2"><i class="bi bi-cup-hot me-1"></i> Java Fundamentals (Oracle)</span>
+                            <span class="badge rounded-pill text-bg-dark border border-secondary-subtle px-3 py-2"><i class="bi bi-code-slash me-1"></i> Python Logic</span>
+                            <span class="badge rounded-pill text-bg-dark border border-secondary-subtle px-3 py-2"><i class="bi bi-phone me-1"></i> Flutter</span>
                         </div>
                     </div>
                 </div>
@@ -189,192 +338,404 @@
         </div>
     </section>
 
-    <section class="py-5 position-relative" id="jornada">
+    <!-- Jornada -->
+    <section class="py-5" id="jornada">
         <div class="container py-5">
-            <div class="text-center mb-5 scroll-reveal">
-                <h2 class="display-5 fw-bold text-white">Minha Jornada</h2>
-                <p class="text-secondary font-monospace">> git log --graph --oneline</p>
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-body-emphasis">Minha Jornada</h2>
+                <p class="text-secondary font-monospace">&gt; git log --graph --oneline</p>
             </div>
 
-            <div class="timeline-wrapper position-relative mx-auto" style="max-width: 800px;">
-                <div class="timeline-line"></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
 
-                <div class="timeline-item d-flex gap-4 mb-5 scroll-reveal delay-100">
-                    <div class="timeline-marker bg-primary glow-primary"></div>
-                    <div class="timeline-content glass-card p-4 w-100">
-                        <span class="badge bg-primary mb-2">HEAD -> main</span>
-                        <h4 class="text-white fw-bold">Tecnólogo em Análise e Desenvolvimento de Sistemas</h4>
-                        <p class="text-primary mb-1">SENAI | 2026 (Em andamento)</p>
-                        <p class="text-secondary small">Início da graduação tecnológica focada em arquitetura de
-                            software e engenharia moderna.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item d-flex gap-4 mb-5 scroll-reveal delay-200">
-                    <div class="timeline-marker bg-success glow-success"></div>
-                    <div class="timeline-content glass-card p-4 w-100">
-                        <span class="badge bg-success mb-2">Commit: a3f92d (TCC Success)</span>
-                        <h4 class="text-white fw-bold">Conclusão Técnica & TCC</h4>
-                        <p class="text-success mb-1">SENAI | Formado em 2025</p>
-                        <p class="text-secondary small">Entrega do TCC: Sistema de Gestão de Ordens de Serviço
-                            (Fullstack .NET 8, EF Core, Razor). Projeto com deploy realizado e documentação completa.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item d-flex gap-4 scroll-reveal delay-300">
-                    <div class="timeline-marker bg-info glow-info"></div>
-                    <div class="timeline-content glass-card p-4 w-100">
-                        <span class="badge bg-info text-dark mb-2">Initial Commit: "The Sprint"</span>
-                        <h4 class="text-white fw-bold">Ano Intensivo de Certificações</h4>
-                        <p class="text-info mb-1">Multi-certificações | 2024</p>
-                        <p class="text-secondary small mb-3">Ano focado em expandir o horizonte tecnológico além do
-                            código:</p>
-
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="badge bg-dark border border-secondary text-secondary">AWS Cloud</span>
-                            <span class="badge bg-dark border border-secondary text-secondary">Google Data</span>
-                            <span class="badge bg-dark border border-secondary text-secondary">Power Platform</span>
-                            <span class="badge bg-dark border border-secondary text-secondary">Java/Oracle</span>
-                            <span class="badge bg-dark border border-secondary text-secondary">IoT</span>
+                    <div class="card bg-body-secondary border-0 border-start border-4 border-primary shadow-sm mb-4">
+                        <div class="card-body">
+                            <span class="badge text-bg-primary mb-2">HEAD -&gt; main</span>
+                            <h4 class="card-title text-body-emphasis fw-bold">
+                                Tecnólogo em Análise e Desenvolvimento de Sistemas
+                            </h4>
+                            <h6 class="card-subtitle text-primary mb-2">SENAI | 2026 (Em andamento)</h6>
+                            <p class="card-text text-secondary small mb-0">
+                                Início da graduação tecnológica focada em arquitetura de software e engenharia
+                                moderna.
+                            </p>
                         </div>
                     </div>
-                </div>
 
+                    <div class="card bg-body-secondary border-0 border-start border-4 border-success shadow-sm mb-4">
+                        <div class="card-body">
+                            <span class="badge text-bg-success mb-2">Commit: a3f92d (TCC Success)</span>
+                            <h4 class="card-title text-body-emphasis fw-bold">Conclusão Técnica &amp; TCC</h4>
+                            <h6 class="card-subtitle text-success mb-2">SENAI | Formado em 2025</h6>
+                            <p class="card-text text-secondary small mb-0">
+                                Entrega do TCC: Sistema de Gestão de Ordens de Serviço (Fullstack .NET 8, EF Core,
+                                Razor). Projeto com deploy realizado e documentação completa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-body-secondary border-0 border-start border-4 border-info shadow-sm">
+                        <div class="card-body">
+                            <span class="badge text-bg-info mb-2">Initial Commit: "The Sprint"</span>
+                            <h4 class="card-title text-body-emphasis fw-bold">Ano Intensivo de Certificações</h4>
+                            <h6 class="card-subtitle text-info mb-3">Multi-certificações | 2024</h6>
+                            <p class="card-text text-secondary small mb-3">
+                                Ano focado em expandir o horizonte tecnológico além do código:
+                            </p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge text-bg-dark border border-secondary-subtle">AWS Cloud</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle">Google Data</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle">Power Platform</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle">Java/Oracle</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle">IoT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5 position-relative" id="projetos">
+    <!-- Projetos -->
+    <section class="py-5" id="projetos">
         <div class="container py-5">
-            
-            <div class="d-flex justify-content-between align-items-end mb-5 scroll-reveal">
+
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-5">
                 <div>
-                    <h2 class="display-5 fw-bold text-white">Projetos em Destaque</h2>
-                    <p class="text-secondary font-monospace mb-0">> ls ./workspace/production</p>
+                    <h2 class="display-5 fw-bold text-body-emphasis">Projetos em Destaque</h2>
+                    <p class="text-secondary font-monospace mb-0">&gt; ls ./workspace/production</p>
                 </div>
-                <a href="https://github.com/JuanJorgeDEV" target="_blank" class="btn btn-outline-secondary rounded-pill d-none d-md-block">
+                <a href="https://github.com/JuanJorgeDEV" target="_blank" rel="noopener"
+                    class="btn btn-outline-secondary rounded-pill">
                     <i class="bi bi-github me-2"></i>Ver tudo no GitHub
                 </a>
             </div>
 
-            <div class="row g-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-                <div class="col-lg-4 col-md-6 scroll-reveal delay-200">
-                    <div class="card project-card h-100 border-0 bg-transparent">
-                        <div class="project-image-wrapper">
-                            <img src="images/PortalReceitas.png" alt="Red Social Recipes" class="img-fluid project-img">
-                            <div class="project-overlay">
-                                <div class="d-flex gap-2">
-                                    <a href="https://github.com/JuanJorgeDEV/ProjReceitas.git" class="btn btn-primary rounded-circle icon-btn"><i class="bi bi-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-body glass-card mt-n3 position-relative z-2 mx-2 rounded-bottom border-top-0">
+                <div class="col">
+                    <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
+                        <img src="images/PortalReceitas.png" class="card-img-top" alt="Social Recipes"
+                            style="height:200px;object-fit:cover;">
+                        <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-warning bg-opacity-10 text-warning border border-warning">Social Web</span>
+                                <span class="badge text-bg-warning bg-opacity-75">Social Web</span>
                                 <small class="text-secondary font-monospace">v1.0-Legacy</small>
                             </div>
-                            <h4 class="text-white fw-bold mb-2">Social Recipes</h4>
-                            <p class="text-secondary small mb-3">
-                                Plataforma colaborativa estilo rede social. Usuários compartilham receitas, avaliam pratos e interagem via comentários. Arquitetura MVC pura focada em performance.
+                            <h4 class="card-title text-body-emphasis fw-bold">Social Recipes</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Plataforma colaborativa estilo rede social. Usuários compartilham receitas, avaliam
+                                pratos e interagem via comentários. Arquitetura MVC pura focada em performance.
                             </p>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="skill-tag">.NET 6</span>
-                                <span class="skill-tag">MVC Pattern</span>
-                                <span class="skill-tag">Raw SQL</span>
-                                <span class="skill-tag">Auth</span>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">.NET 6</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">MVC Pattern</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Raw SQL</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Auth</span>
                             </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-secondary-subtle d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal"
+                                data-bs-target="#modalProjeto1">
+                                <i class="bi bi-info-circle me-2"></i>Detalhes
+                            </button>
+                            <a href="https://github.com/JuanJorgeDEV/ProjReceitas.git" target="_blank" rel="noopener"
+                                class="btn btn-outline-primary btn-sm flex-fill">
+                                <i class="bi bi-github me-2"></i>Ver código
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 scroll-reveal delay-100">
-                    <div class="card project-card h-100 border-0 bg-transparent">
-                        <div class="project-image-wrapper">
-                            <img src="images/imagem1.jpg" alt="Sistema de Gestão SENAI" class="img-fluid project-img">
-                            <div class="project-overlay">
-                                <div class="d-flex gap-2">
-                                    <a href="https://github.com/JuanJorgeDEV/Gest-oOS.git" class="btn btn-primary rounded-circle icon-btn" title="Código Fonte"><i class="bi bi-code-slash"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card-body glass-card mt-n3 position-relative z-2 mx-2 rounded-bottom border-top-0">
+                <div class="col">
+                    <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
+                        <img src="images/imagem1.jpg" class="card-img-top" alt="Sistema de Gestão SENAI"
+                            style="height:200px;object-fit:cover;">
+                        <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-success bg-opacity-10 text-success border border-success">Enterprise</span>
+                                <span class="badge text-bg-success bg-opacity-75">Enterprise</span>
                                 <small class="text-secondary font-monospace">v2.0.1</small>
                             </div>
-                            <h4 class="text-white fw-bold mb-2">GestaoOS - Gestão de Ativos</h4>
-                            <p class="text-secondary small mb-3">
-                                Sistema centralizado para controle de chamados e ativos do SENAI. Inclui mapa interativo de laboratórios, workflow de aprovação e dashboard de KPIs para gestão.
+                            <h4 class="card-title text-body-emphasis fw-bold">GestaoOS - Gestão de Ativos</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Sistema centralizado para controle de chamados e ativos do SENAI. Inclui mapa
+                                interativo de laboratórios, workflow de aprovação e dashboard de KPIs para gestão.
                             </p>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="skill-tag">.NET 8</span>
-                                <span class="skill-tag">EF Core</span>
-                                <span class="skill-tag">KPIs</span>
-                                <span class="skill-tag">Razor Pages</span>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">.NET 8</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">EF Core</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">KPIs</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Razor Pages</span>
                             </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-secondary-subtle d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal"
+                                data-bs-target="#modalProjeto2">
+                                <i class="bi bi-info-circle me-2"></i>Detalhes
+                            </button>
+                            <a href="https://github.com/JuanJorgeDEV/Gest-oOS.git" target="_blank" rel="noopener"
+                                class="btn btn-outline-primary btn-sm flex-fill">
+                                <i class="bi bi-code-slash me-2"></i>Ver código
+                            </a>
                         </div>
                     </div>
                 </div>
 
-               <div class="col-lg-4 col-md-6 scroll-reveal delay-300">
-                    <div class="card project-card h-100 border-0 bg-transparent">
-                        <div class="project-image-wrapper bg-dark d-flex align-items-center justify-content-center position-relative overflow-hidden">
-                            <div class="matrix-bg"></div>
-                            <i class="bi bi-rocket-takeoff-fill text-secondary opacity-25" style="font-size: 5rem;"></i>
-                            
-                            <div class="project-overlay" style="opacity: 1;">
-                                <span class="badge bg-black border border-secondary text-white px-3 py-2">
-                                    <i class="bi bi-hourglass-split me-2"></i>Em Breve
-                                </span>
-                            </div>
+                <div class="col">
+                    <div class="card h-100 bg-body-secondary border-primary-subtle shadow-sm">
+                        <div class="card-img-top bg-black d-flex align-items-center justify-content-center"
+                            style="height:200px;">
+                            <i class="bi bi-rocket-takeoff-fill text-secondary opacity-25" style="font-size:5rem;"></i>
                         </div>
-
-                        <div class="card-body glass-card mt-n3 position-relative z-2 mx-2 rounded-bottom border-top-0 border-primary-glow">
+                        <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary">Próximo Desafio</span>
-                                <small class="text-primary font-monospace blink">Loading...</small>
+                                <span class="badge text-bg-primary bg-opacity-75">Próximo Desafio</span>
+                                <small class="text-primary font-monospace d-inline-flex align-items-center gap-1">
+                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </small>
                             </div>
-                            <h4 class="text-white fw-bold mb-2">Coming son...</h4>
-                            <p class="text-secondary small mb-3">
-                                Um novo projeto está sendo desenvolvido para elevar o nível do portfólio. Focado em arquitetura robusta e solução de problemas reais. Aguarde novidades!
+                            <h4 class="card-title text-body-emphasis fw-bold">Coming soon...</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Um novo projeto está sendo desenvolvido para elevar o nível do portfólio. Focado em
+                                arquitetura robusta e solução de problemas reais. Aguarde novidades!
                             </p>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="skill-tag border-primary font-monospace">???</span>
-                                <span class="skill-tag border-primary">Coming Soon</span>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge text-bg-dark border border-primary-subtle font-monospace">???</span>
+                                <span class="badge text-bg-dark border border-primary-subtle">Coming Soon</span>
                             </div>
                         </div>
+                        <div class="card-footer bg-transparent border-secondary-subtle">
+                            <button class="btn btn-outline-secondary btn-sm w-100" disabled>
+                                <i class="bi bi-hourglass-split me-2"></i>Em breve
+                            </button>
+                        </div>
                     </div>
-                </div>
                 </div>
 
             </div>
         </div>
     </section>
-    <footer class="bg-black py-5 border-top border-dark">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <p class="font-monospace text-secondary mb-0">
-                        <span class="text-success">user@portfolio:~$</span> build status: <span
-                            class="text-white">success</span><br>
-                        <span class="text-success">user@portfolio:~$</span> last update: <span
-                            class="text-white">2026</span>
-                    </p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="text-secondary small mb-0">Desenvolvido por Juan Jorge com HTML, CSS, JS e muito ☕</p>
+
+    <!-- FAQ -->
+    <section class="py-5" id="faq">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-body-emphasis">Perguntas Frequentes</h2>
+                <p class="text-secondary font-monospace">&gt; cat README.md | grep -A2 "FAQ"</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+
+                        <div class="accordion-item bg-body-secondary border-secondary-subtle">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-body-secondary text-body-emphasis" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false"
+                                    aria-controls="faq1">
+                                    Você está disponível para novas oportunidades?
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Sim! Estou aberto a vagas de estágio, júnior ou projetos freelance, com foco em
+                                    desenvolvimento .NET, dados e soluções em nuvem. Me chama pelo
+                                    <a href="mailto:juanjorgedm@gmail.com" class="link-primary">e-mail</a> ou
+                                    <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" rel="noopener" class="link-primary">LinkedIn</a>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-body-secondary border-secondary-subtle">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-body-secondary text-body-emphasis" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false"
+                                    aria-controls="faq2">
+                                    Qual é a sua stack principal?
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Ecossistema Microsoft: .NET 8 / C#, Entity Framework Core, SQL Server e Razor
+                                    Pages. Também trabalho com Power Platform, Power BI, e tenho experiência
+                                    complementar em AWS, Google Cloud, Java e Python.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-body-secondary border-secondary-subtle">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-body-secondary text-body-emphasis" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
+                                    aria-controls="faq3">
+                                    Você trabalha remoto?
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Sim, remoto é minha preferência, mas também topo modelos híbridos ou presenciais
+                                    dependendo da oportunidade — sou de Ribeirão Preto/SP.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-body-secondary border-secondary-subtle">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-body-secondary text-body-emphasis" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false"
+                                    aria-controls="faq4">
+                                    Este portfólio foi feito só com Bootstrap mesmo?
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Sim — sem nenhum arquivo CSS ou JavaScript próprio. Navbar, abas User/Dev,
+                                    Scrollspy, tooltips, barras de progresso, modais e este próprio accordion são
+                                    todos componentes nativos do Bootstrap 5.3.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-top border-secondary-subtle py-5" id="contato">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h5 class="text-body-emphasis fw-bold font-monospace mb-3">&lt;Juan Jorge/&gt;</h5>
+                    <p class="text-secondary small">
+                        Especialista na Stack Microsoft &amp; Soluções em Nuvem. Sempre aberto a novas oportunidades
+                        e desafios.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-body-emphasis text-uppercase small mb-3">Navegação</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><a href="#sobre" class="link-secondary link-opacity-75 link-opacity-100-hover text-decoration-none">Sobre</a></li>
+                        <li><a href="#skills" class="link-secondary link-opacity-75 link-opacity-100-hover text-decoration-none">Skills</a></li>
+                        <li><a href="#jornada" class="link-secondary link-opacity-75 link-opacity-100-hover text-decoration-none">Jornada</a></li>
+                        <li><a href="#projetos" class="link-secondary link-opacity-75 link-opacity-100-hover text-decoration-none">Projetos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-body-emphasis text-uppercase small mb-3">Contato &amp; Status</h6>
+                    <p class="font-monospace text-secondary small mb-1">
+                        <span class="text-success">user@portfolio:~$</span> build status: <span class="text-body-emphasis">success</span>
+                    </p>
+                    <p class="font-monospace text-secondary small mb-3">
+                        <span class="text-success">user@portfolio:~$</span> last update: <span class="text-body-emphasis">2026</span>
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="mailto:juanjorgedm@gmail.com" class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="E-mail">
+                            <i class="bi bi-envelope-at"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" rel="noopener"
+                            class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/JuanJorgeDEV" target="_blank" rel="noopener"
+                            class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary-subtle my-4">
+            <p class="text-center text-secondary small mb-0">
+                © 2026 Juan Jorge — Desenvolvido com HTML, CSS e Bootstrap <i class="bi bi-cup-hot-fill text-warning"></i>
+            </p>
+        </div>
     </footer>
 
+    <!-- Modal: Social Recipes -->
+    <div class="modal fade" id="modalProjeto1" tabindex="-1" aria-labelledby="modalProjeto1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-body-secondary">
+                <div class="modal-header border-secondary-subtle">
+                    <h5 class="modal-title text-body-emphasis fw-bold" id="modalProjeto1Label">Social Recipes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/PortalReceitas.png" alt="Social Recipes" class="img-fluid rounded mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge text-bg-warning bg-opacity-75">Social Web</span>
+                        <small class="text-secondary font-monospace">v1.0-Legacy</small>
+                    </div>
+                    <p class="text-secondary">
+                        Plataforma colaborativa estilo rede social. Usuários compartilham receitas, avaliam pratos e
+                        interagem via comentários. Arquitetura MVC pura focada em performance, com autenticação de
+                        usuários e persistência via SQL puro (sem ORM), decisão tomada propositalmente para
+                        aprofundar o entendimento de consultas SQL na prática.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">.NET 6</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">MVC Pattern</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Raw SQL</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Auth</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary-subtle">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="https://github.com/JuanJorgeDEV/ProjReceitas.git" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="bi bi-github me-2"></i>Ver código no GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Modal: GestaoOS -->
+    <div class="modal fade" id="modalProjeto2" tabindex="-1" aria-labelledby="modalProjeto2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-body-secondary">
+                <div class="modal-header border-secondary-subtle">
+                    <h5 class="modal-title text-body-emphasis fw-bold" id="modalProjeto2Label">GestaoOS - Gestão de Ativos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/imagem1.jpg" alt="Sistema de Gestão SENAI" class="img-fluid rounded mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge text-bg-success bg-opacity-75">Enterprise</span>
+                        <small class="text-secondary font-monospace">v2.0.1</small>
+                    </div>
+                    <p class="text-secondary">
+                        Sistema centralizado para controle de chamados e ativos do SENAI. Inclui mapa interativo de
+                        laboratórios, workflow de aprovação em múltiplas etapas e dashboard de KPIs para gestão.
+                        Projeto entregue como Trabalho de Conclusão de Curso (TCC), com deploy realizado e
+                        documentação técnica completa.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">.NET 8</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">EF Core</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">KPIs</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Razor Pages</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary-subtle">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="https://github.com/JuanJorgeDEV/Gest-oOS.git" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="bi bi-code-slash me-2"></i>Ver código no GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Ativação padrão do componente Tooltip do Bootstrap (exigida pela própria documentação oficial)
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (el) {
+            new bootstrap.Tooltip(el);
+        });
+    </script>
 </body>
 
 </html>
