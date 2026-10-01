@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Jorge - Desenvolvedor Full Stack | MercadoJuan</title>
+    <meta name="description" content="Anúncio de brincadeira vendendo o Juan Jorge como produto, estilo marketplace.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        :root { --amarelo: #FFE600; }
+        body { background-color: #ebebeb; }
+        .barra-amarela { background-color: var(--amarelo); }
+        .botao-comprar { background-color: #3483fa; color: #fff; }
+        .botao-comprar:hover { background-color: #2968c8; color: #fff; }
+        .botao-carrinho { background-color: #fff159; border-color: #ffe600; color: #333; }
+        .botao-carrinho:hover { background-color: #fada2d; border-color: #ffe600; color: #333; }
+        .preco-antigo { text-decoration: line-through; color: #999; }
+        .opcao-modalidade.active { border-color: #3483fa !important; box-shadow: 0 0 0 1px #3483fa; }
+        .estrelas i { color: #3483fa; font-size: .9rem; }
+        .foto-produto { height: 380px; background: #fafafa; object-fit: cover; }
+        .barra-fina { height: 8px; }
+        .busca { max-width: 420px; width: 100%; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar barra-amarela py-2 position-relative">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">
+                <i class="bi bi-bag-check-fill me-1"></i>MercadoJuan
+            </a>
+            <form class="d-none d-md-flex busca position-absolute top-50 start-50 translate-middle" role="search" onsubmit="return false;">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Busque por &quot;desenvolvedor confiável&quot;" aria-label="Buscar">
+                    <button class="btn btn-light" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container py-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb small">
+                <li class="breadcrumb-item"><a href="#" class="link-secondary text-decoration-none">Início</a></li>
+                <li class="breadcrumb-item"><a href="#" class="link-secondary text-decoration-none">Serviços</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Juan Jorge</li>
+            </ol>
+        </nav>
+
+        <div class="bg-white rounded p-4 shadow-sm">
+            <div class="row g-4">
+
+                <div class="col-lg-5">
+                    <div class="d-flex flex-wrap gap-2 mb-2">
+                        <span class="badge text-bg-success">MAIS VENDIDO</span>
+                        <span class="badge text-bg-primary">FRETE GRÁTIS</span>
+                    </div>
+                    <div class="border rounded overflow-hidden">
+                        <img src="images/perfil-1.jpg" alt="Juan Jorge" class="w-100 foto-produto">
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <p class="text-secondary small mb-1">Novo | +847 vagas visualizadas</p>
+                    <h1 class="h4 fw-normal mb-2">Desenvolvedor Full Stack Juan Jorge — Stack Microsoft &amp; Soluções em Nuvem</h1>
+
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="estrelas">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <a href="#avaliacoes" class="text-decoration-none small">4.9 (habilidades e recomendações)</a>
+                    </div>
+
+                    <div class="mb-3">
+                        <span class="preco-antigo small">R$ 15.000/mês</span>
+                        <div class="fs-3">R$ <span class="fw-normal">A combinar</span></div>
+                        <p class="text-success small mb-0">em até 12x sem juros de motivação</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="mb-3">
+                        <p class="fw-bold mb-2">Modalidade de contratação: <span id="rotuloModalidade" class="fw-normal text-primary">Freelance</span></p>
+                        <div class="d-flex flex-wrap gap-2" id="grupoModalidade">
+                            <button type="button" class="btn btn-outline-secondary btn-sm opcao-modalidade active" data-desc="Ideal para uma demanda pontual, com escopo e prazo bem definidos." data-carga="6h/dia">
+                                Freelance · 6h
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm opcao-modalidade" data-desc="Em formação ativa, aprende rápido e já entrega tarefas reais com supervisão." data-carga="8h/dia">
+                                Estágio · 8h CLT
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm opcao-modalidade" data-desc="Fixo, dedicado ao time, participa das dailies e pensa em plano de carreira." data-carga="8h/dia">
+                                CLT
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm opcao-modalidade" data-desc="Vem com CNPJ e nota fiscal, carga horária combinada por projeto." data-carga="Flexível">
+                                PJ
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <p class="mb-1"><i class="bi bi-clock-history me-2 text-secondary"></i>Carga horária: <span id="cargaHoraria" class="fw-semibold">6h/dia</span></p>
+                        <p class="text-secondary small mb-0" id="descModalidade">Ideal para uma demanda pontual, com escopo e prazo bem definidos.</p>
+                    </div>
+
+                    <hr>
+
+                    <h2 class="h6 fw-bold">O que está incluso</h2>
+                    <ul class="list-unstyled text-secondary small">
+                        <li class="mb-1"><i class="bi bi-check2 text-success me-2"></i>Comunicação direta, sem enrolação</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-success me-2"></i>Código documentado e organizado</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-success me-2"></i>Café ilimitado (por conta própria)</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="border rounded p-3">
+                        <p class="text-success small mb-1"><i class="bi bi-truck me-1"></i>Chegada rápida</p>
+                        <p class="small mb-3">Assim que você mandar mensagem. Grátis, sem taxa de entrega.</p>
+
+                        <p class="small text-secondary mb-1">Comprar agora via:</p>
+                        <div class="row g-2 mb-2">
+                            <div class="col-6">
+                                <a class="btn botao-comprar w-100 d-flex flex-column align-items-center justify-content-center py-2" id="btnWhats" target="_blank" rel="noopener"
+                                    href="https://wa.me/5516982202091?text=Oi%20Juan%2C%20vi%20seu%20an%C3%BAncio%20no%20MercadoJuan%20e%20quero%20conversar%20sobre%20a%20modalidade%3A%20Freelance">
+                                    <i class="bi bi-whatsapp fs-5 mb-1"></i>
+                                    <span class="small">WhatsApp</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="btn btn-outline-primary w-100 d-flex flex-column align-items-center justify-content-center py-2" id="btnEmail"
+                                    href="mailto:juanjorgedm@gmail.com?subject=Quero%20contratar%20o%20Juan%20(Freelance)&body=Oi%20Juan%2C%20vi%20seu%20an%C3%BAncio%20no%20MercadoJuan%20e%20quero%20conversar%20sobre%20a%20modalidade%3A%20Freelance">
+                                    <i class="bi bi-envelope fs-5 mb-1"></i>
+                                    <span class="small">E-mail</span>
+                                </a>
+                            </div>
+                        </div>
+                        <button class="btn botao-carrinho w-100 fw-bold mb-3" data-bs-toggle="modal" data-bs-target="#modalCarrinho">
+                            Adicionar ao carrinho
+                        </button>
+
+                        <hr>
+
+                        <p class="small mb-1 fw-bold">Vendido por</p>
+                        <p class="small mb-1">Juan Jorge Ltda ME (o próprio)</p>
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <span class="badge text-bg-success">MercadoLíder</span>
+                            <span class="small text-secondary">99.2% avaliações positivas</span>
+                        </div>
+                        <div class="progress barra-fina mb-3">
+                            <div class="progress-bar bg-success" style="width:99%"></div>
+                        </div>
+
+                        <ul class="list-unstyled small text-secondary mb-0">
+                            <li class="mb-2"><i class="bi bi-shield-check text-secondary me-2"></i>30 dias de suporte pós-venda</li>
+                            <li><i class="bi bi-chat-dots text-secondary me-2"></i>Fale direto com o vendedor pelo <a href="tel:+5516982202091" class="text-decoration-none">WhatsApp</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <ul class="nav nav-tabs" id="abasInfo" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#aba-descricao" type="button">Descrição</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#aba-ficha" type="button">Ficha técnica</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#aba-trajetoria" type="button">Trajetória</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#aba-perguntas" type="button">Perguntas</button>
+                </li>
+            </ul>
+            <div class="tab-content border border-top-0 rounded-bottom p-4">
+
+                <div class="tab-pane fade show active" id="aba-descricao">
+                    <p class="text-secondary">
+                        Graduando em Análise e Desenvolvimento de Sistemas (SENAI), com base sólida no ecossistema
+                        Microsoft (.NET 8 / .NET 10, C#, Entity Framework Core, SQL Server) e certificações em AWS,
+                        Google Cloud e Power Platform. Já entregou sistemas completos do zero, do requisito ao
+                        deploy.
+                    </p>
+                    <p class="text-secondary mb-0">
+                        De Ribeirão Preto/SP. Gosta de aprender rápido, documentar bem e resolver problema de verdade
+                        — prefere remoto, mas topa híbrido ou presencial.
+                    </p>
+                </div>
+
+                <div class="tab-pane fade" id="aba-ficha">
+                    <h3 class="h6 fw-bold mb-3">Nível de domínio</h3>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1 small">
+                            <span>.NET / C#</span><span class="text-secondary">90%</span>
+                        </div>
+                        <div class="progress barra-fina"><div class="progress-bar bg-primary" style="width:90%"></div></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1 small">
+                            <span>SQL Server</span><span class="text-secondary">85%</span>
+                        </div>
+                        <div class="progress barra-fina"><div class="progress-bar bg-primary" style="width:85%"></div></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1 small">
+                            <span>Power BI / Power Platform</span><span class="text-secondary">80%</span>
+                        </div>
+                        <div class="progress barra-fina"><div class="progress-bar bg-warning" style="width:80%"></div></div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-1 small">
+                            <span>Cloud (AWS / GCP)</span><span class="text-secondary">70%</span>
+                        </div>
+                        <div class="progress barra-fina"><div class="progress-bar bg-warning" style="width:70%"></div></div>
+                    </div>
+                    <h3 class="h6 fw-bold mb-3">Certificações</h3>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-dark"><i class="bi bi-amazon me-1"></i>AWS Cloud Practitioner</span>
+                        <span class="badge text-bg-dark"><i class="bi bi-google me-1"></i>Google Cloud Data Analytics</span>
+                        <span class="badge text-bg-dark">PL-900 (Power Platform)</span>
+                        <span class="badge text-bg-dark">Java (POO)</span>
+                        <span class="badge text-bg-dark">Python</span>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="aba-trajetoria">
+                    <div class="border-start border-3 border-primary ps-3 mb-4">
+                        <span class="badge text-bg-primary mb-1">Atual</span>
+                        <h4 class="h6 fw-bold mb-1">Tecnólogo em Análise e Desenvolvimento de Sistemas</h4>
+                        <p class="text-secondary small mb-0">SENAI | 2026 (em andamento) — vários projetos próprios, primeiro contato com IA aplicada e estudos por fora da grade.</p>
+                    </div>
+                    <div class="border-start border-3 border-success ps-3 mb-4">
+                        <span class="badge text-bg-success mb-1">2025</span>
+                        <h4 class="h6 fw-bold mb-1">Conclusão técnica &amp; TCC</h4>
+                        <p class="text-secondary small mb-0">TCC: GestaoOS, sistema fullstack .NET 8 com deploy e documentação completa.</p>
+                    </div>
+                    <div class="border-start border-3 border-secondary ps-3">
+                        <span class="badge text-bg-secondary mb-1">2024</span>
+                        <h4 class="h6 fw-bold mb-1">Início do Técnico em Desenvolvimento de Sistemas</h4>
+                        <p class="text-secondary small mb-0">SENAI — primeiro contato formal com lógica de programação e banco de dados.</p>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="aba-perguntas">
+                    <div class="accordion" id="perguntas">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta1">
+                                    Ele vem com garantia?
+                                </button>
+                            </h3>
+                            <div id="pergunta1" class="accordion-collapse collapse" data-bs-parent="#perguntas">
+                                <div class="accordion-body text-secondary">Sim, 30 dias de suporte pós-venda.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta2">
+                                    Trabalha remoto?
+                                </button>
+                            </h3>
+                            <div id="pergunta2" class="accordion-collapse collapse" data-bs-parent="#perguntas">
+                                <div class="accordion-body text-secondary">Sim, é a preferência — mas híbrido ou presencial em Ribeirão Preto/SP também rola.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta3">
+                                    Qual é a stack principal?
+                                </button>
+                            </h3>
+                            <div id="pergunta3" class="accordion-collapse collapse" data-bs-parent="#perguntas">
+                                <div class="accordion-body text-secondary">.NET 8 / .NET 10 (C#), Entity Framework Core e SQL Server, com AWS, Google Cloud, Java e Python como complemento.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded p-4 shadow-sm mt-4" id="avaliacoes">
+            <h2 class="h5 mb-1">Avaliações do produto</h2>
+            <p class="text-secondary small mb-3">
+                As estrelas mostram minha proficiência real em cada habilidade — autoavaliação honesta.
+            </p>
+            <div class="d-flex flex-column gap-3">
+                <div class="border rounded p-3">
+                    <div class="d-flex justify-content-between align-items-start mb-1">
+                        <span class="fw-bold small">.NET / ASP.NET Core (8 e 10)</span>
+                        <span class="estrelas"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                    </div>
+                    <p class="text-secondary small mb-0">Já entreguei sistemas completos em produção com essa stack, do requisito ao deploy.</p>
+                </div>
+                <div class="border rounded p-3">
+                    <div class="d-flex justify-content-between align-items-start mb-1">
+                        <span class="fw-bold small">SQL Server &amp; Entity Framework</span>
+                        <span class="estrelas"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                    </div>
+                    <p class="text-secondary small mb-0">Comecei com SQL puro no meu primeiro projeto pra entender bem as queries; hoje uso EF Core sem perder esse cuidado.</p>
+                </div>
+                <div class="border rounded p-3">
+                    <div class="d-flex justify-content-between align-items-start mb-1">
+                        <span class="fw-bold small">Power BI &amp; Power Platform</span>
+                        <span class="estrelas"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
+                    </div>
+                    <p class="text-secondary small mb-0">Certificações PL-900 e dashboards de KPIs construídos em projeto real.</p>
+                </div>
+                <div class="border rounded p-3">
+                    <div class="d-flex justify-content-between align-items-start mb-1">
+                        <span class="fw-bold small">Cloud (AWS &amp; Google Cloud)</span>
+                        <span class="estrelas"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
+                    </div>
+                    <p class="text-secondary small mb-0">Certificado nos dois, com boa base de arquitetura e custos — ainda não é onde tenho mais horas de produção.</p>
+                </div>
+                <div class="border rounded p-3">
+                    <div class="d-flex justify-content-between align-items-start mb-1">
+                        <span class="fw-bold small">Proatividade &amp; Trabalho em equipe</span>
+                        <span class="estrelas"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                    </div>
+                    <p class="text-secondary small mb-0">Sempre fui atrás do próximo passo sozinho, mas resolvo melhor em grupo — sem travar ego em code review.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h2 class="h5 mb-3">Mais deste vendedor</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-3">
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/BarberDesk.png" class="card-img-top" alt="BarberDesk" style="height:160px;object-fit:cover;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h3 class="h6 fw-bold mb-0">BarberDesk</h3>
+                                <span class="badge text-bg-success">Entregue</span>
+                            </div>
+                            <p class="small text-secondary mb-0">Agendamento com automação via WhatsApp para barbearias e clínicas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/GLab.png" class="card-img-top" alt="G-Lab" style="height:160px;object-fit:cover;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h3 class="h6 fw-bold mb-0">G-Lab</h3>
+                                <span class="badge text-bg-success">Entregue</span>
+                            </div>
+                            <p class="small text-secondary mb-2">Gestão de ordens de serviço para laboratórios e salas de aula.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="https://github.com/JuanJorgeDEV/G-LAB" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm w-100">
+                                <i class="bi bi-github me-1"></i>Ver código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/HelpProf.jpg" class="card-img-top" alt="HelpProf" style="height:160px;object-fit:cover;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h3 class="h6 fw-bold mb-0">HelpProf</h3>
+                                <span class="badge text-bg-success">Entregue</span>
+                            </div>
+                            <p class="small text-secondary mb-2">Microlearning com assistente de IA para professores da rede pública.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="https://github.com/JuanJorgeDEV/HelpProf" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm w-100">
+                                <i class="bi bi-github me-1"></i>Ver código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="index.html#projetos" class="btn btn-outline-dark btn-sm">Ver todos os projetos no portfólio</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCarrinho" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-cart-check-fill me-2 text-success"></i>Adicionado ao carrinho!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>1x <strong>Juan Jorge</strong> — modalidade <strong id="modalModalidade">Freelance</strong> foi adicionado ao seu carrinho.</p>
+                    <p class="text-secondary small mb-0">Só falta finalizar a compra chamando de verdade no e-mail ou WhatsApp.</p>
+                </div>
+                <div class="modal-footer flex-column flex-sm-row">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Continuar navegando</button>
+                    <a href="https://wa.me/5516982202091?text=Oi%20Juan%2C%20quero%20fechar%20a%20contrata%C3%A7%C3%A3o" target="_blank" rel="noopener" class="btn botao-comprar">
+                        <i class="bi bi-whatsapp me-1"></i>Via WhatsApp
+                    </a>
+                    <a href="mailto:juanjorgedm@gmail.com?subject=Quero%20fechar%20a%20contrata%C3%A7%C3%A3o" class="btn btn-outline-primary">
+                        <i class="bi bi-envelope me-1"></i>Via E-mail
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top py-4 mt-4 bg-white">
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-2"><i class="bi bi-bag-check-fill me-1"></i>MercadoJuan</h5>
+                    <p class="text-secondary small mb-0">Anúncio de brincadeira — mas o desenvolvedor e os projetos são reais.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="https://wa.me/5516982202091" target="_blank" rel="noopener" class="text-decoration-none small"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+                        <a href="mailto:juanjorgedm@gmail.com" class="text-decoration-none small"><i class="bi bi-envelope-at me-1"></i>E-mail</a>
+                        <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" rel="noopener" class="text-decoration-none small"><i class="bi bi-linkedin me-1"></i>LinkedIn</a>
+                        <a href="https://github.com/JuanJorgeDEV" target="_blank" rel="noopener" class="text-decoration-none small"><i class="bi bi-github me-1"></i>GitHub</a>
+                        <a href="index.html" class="text-decoration-none small">&larr; Portfólio</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center text-secondary small mb-0">&copy; 2026 Juan Jorge</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.opcao-modalidade').forEach(function (botao) {
+            botao.addEventListener('click', function () {
+                document.querySelectorAll('.opcao-modalidade').forEach(function (b) { b.classList.remove('active'); });
+                botao.classList.add('active');
+
+                var nome = botao.textContent.trim().split('·')[0].trim();
+                document.getElementById('rotuloModalidade').textContent = nome;
+                document.getElementById('cargaHoraria').textContent = botao.dataset.carga;
+                document.getElementById('descModalidade').textContent = botao.dataset.desc;
+                document.getElementById('modalModalidade').textContent = nome;
+
+                var texto = encodeURIComponent('Oi Juan, vi seu anúncio no MercadoJuan e quero conversar sobre a modalidade: ' + nome);
+                document.getElementById('btnWhats').href = 'https://wa.me/5516982202091?text=' + texto;
+
+                var assunto = encodeURIComponent('Quero contratar o Juan (' + nome + ')');
+                document.getElementById('btnEmail').href = 'mailto:juanjorgedm@gmail.com?subject=' + assunto + '&body=' + texto;
+            });
+        });
+    </script>
+</body>
+
+</html>

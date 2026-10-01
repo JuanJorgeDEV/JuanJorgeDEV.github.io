@@ -8,11 +8,17 @@
     <meta name="description" content="Juan Jorge — Especialista na Stack Microsoft & Soluções em Nuvem. Portfólio de projetos, skills e trajetória.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        .icon-btn-32 { width: 32px; height: 32px; }
+        .icon-btn-26 { width: 26px; height: 26px; }
+        .avatar-220 { width: 220px; height: 220px; }
+        .card-img-fixed { height: 200px; object-fit: cover; }
+        .progress-thin { height: 8px; }
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary shadow-sm" id="mainNav">
         <div class="container">
             <a class="navbar-brand fw-bold font-monospace" href="#home">
@@ -31,6 +37,10 @@
                     <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
                 </ul>
                 <div class="d-flex align-items-center gap-3">
+                    <button type="button" id="themeToggle" class="btn btn-sm btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 icon-btn-32"
+                        title="Alternar tema claro/escuro">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
                     <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" rel="noopener"
                         class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="LinkedIn">
                         <i class="bi bi-linkedin"></i>
@@ -39,17 +49,15 @@
                         class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="GitHub">
                         <i class="bi bi-github"></i>
                     </a>
-                    <a href="#contato" class="btn btn-outline-primary btn-sm rounded-pill px-3">Contato</a>
+                    <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#modalContato">Contato</button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="d-flex align-items-center justify-content-center text-center vh-100 bg-body" id="home">
         <div class="container">
 
-            <!-- Toggle User / Dev — Bootstrap nav-pills + Tab (sem JS customizado) -->
             <ul class="nav nav-pills bg-body-secondary rounded-pill p-1 d-inline-flex mb-4 shadow-sm" id="modeTab"
                 role="tablist">
                 <li class="nav-item" role="presentation">
@@ -89,7 +97,6 @@
                         <span class="text-success">new</span> <span class="text-warning">JuanJorge</span>();
                     </h1>
                     <h2 class="h5 text-secondary mb-5 font-monospace">
-                        // Stack Microsoft &amp; Soluções em Nuvem carregadas...
                     </h2>
                     <a href="#projetos" class="btn btn-outline-success btn-lg px-5 py-3 font-monospace fw-bold">
                         Execute.Init()
@@ -98,10 +105,15 @@
             </div>
 
             <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
-                <a href="mailto:juanjorgedm@gmail.com"
-                    class="text-decoration-none link-secondary link-opacity-75 link-opacity-100-hover">
-                    <i class="bi bi-envelope-at me-2"></i>juanjorgedm@gmail.com
-                </a>
+                <span class="d-inline-flex align-items-center gap-2">
+                    <a href="mailto:juanjorgedm@gmail.com"
+                        class="text-decoration-none link-secondary link-opacity-75 link-opacity-100-hover">
+                        <i class="bi bi-envelope-at me-2"></i>juanjorgedm@gmail.com
+                    </a>
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-circle btn-copy-email d-flex align-items-center justify-content-center p-0 icon-btn-26" data-email="juanjorgedm@gmail.com" title="Copiar e-mail">
+                        <i class="bi bi-clipboard"></i>
+                    </button>
+                </span>
                 <span class="d-none d-md-block text-secondary">•</span>
                 <a href="tel:+5516982202091"
                     class="text-decoration-none link-secondary link-opacity-75 link-opacity-100-hover">
@@ -122,14 +134,12 @@
         </div>
     </section>
 
-    <!-- Sobre mim -->
     <section class="py-5" id="sobre">
         <div class="container py-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-4 text-center">
-                    <div class="rounded-circle bg-body-secondary border border-primary border-opacity-50 mx-auto d-flex align-items-center justify-content-center overflow-hidden"
-                        style="width:220px;height:220px;">
-                        <img src="images/perfil.jpg" alt="Foto de Juan Jorge" class="w-100 h-100"
+                    <div class="rounded-circle bg-body-secondary border border-primary border-opacity-50 mx-auto d-flex align-items-center justify-content-center overflow-hidden avatar-220">
+                        <img src="images/perfil-1.jpg" alt="Foto de Juan Jorge" class="w-100 h-100"
                             style="object-fit:cover;"
                             onerror="this.classList.add('d-none'); this.nextElementSibling.classList.remove('d-none');">
                         <i class="bi bi-person-badge display-1 text-primary d-none"></i>
@@ -177,7 +187,6 @@
         </div>
     </section>
 
-    <!-- Skills -->
     <section class="py-5" id="skills">
         <div class="container py-5">
             <div class="row g-5">
@@ -247,8 +256,8 @@
                                 <span class="text-body-emphasis small"><i class="bi bi-microsoft me-1"></i> .NET / C#</span>
                                 <span class="text-secondary small font-monospace">90%</span>
                             </div>
-                            <div class="progress" role="progressbar" aria-label=".NET / C#" aria-valuenow="90"
-                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                            <div class="progress progress-thin" role="progressbar" aria-label=".NET / C#" aria-valuenow="90"
+                                aria-valuemin="0" aria-valuemax="100">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
                                     style="width:90%"></div>
                             </div>
@@ -259,8 +268,8 @@
                                 <span class="text-body-emphasis small"><i class="bi bi-database me-1"></i> SQL Server</span>
                                 <span class="text-secondary small font-monospace">85%</span>
                             </div>
-                            <div class="progress" role="progressbar" aria-label="SQL Server" aria-valuenow="85"
-                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                            <div class="progress progress-thin" role="progressbar" aria-label="SQL Server" aria-valuenow="85"
+                                aria-valuemin="0" aria-valuemax="100">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
                                     style="width:85%"></div>
                             </div>
@@ -271,8 +280,8 @@
                                 <span class="text-body-emphasis small"><i class="bi bi-cloud me-1"></i> Cloud (AWS / GCP)</span>
                                 <span class="text-secondary small font-monospace">70%</span>
                             </div>
-                            <div class="progress" role="progressbar" aria-label="Cloud" aria-valuenow="70"
-                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                            <div class="progress progress-thin" role="progressbar" aria-label="Cloud" aria-valuenow="70"
+                                aria-valuemin="0" aria-valuemax="100">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
                                     style="width:70%"></div>
                             </div>
@@ -283,8 +292,8 @@
                                 <span class="text-body-emphasis small"><i class="bi bi-bar-chart-fill me-1"></i> Power BI / Power Platform</span>
                                 <span class="text-secondary small font-monospace">80%</span>
                             </div>
-                            <div class="progress" role="progressbar" aria-label="Power BI" aria-valuenow="80"
-                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                            <div class="progress progress-thin" role="progressbar" aria-label="Power BI" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
                                     style="width:80%"></div>
                             </div>
@@ -295,8 +304,8 @@
                                 <span class="text-body-emphasis small"><i class="bi bi-shield-lock me-1"></i> Cibersegurança</span>
                                 <span class="text-secondary small font-monospace">65%</span>
                             </div>
-                            <div class="progress" role="progressbar" aria-label="Cibersegurança" aria-valuenow="65"
-                                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                            <div class="progress progress-thin" role="progressbar" aria-label="Cibersegurança" aria-valuenow="65"
+                                aria-valuemin="0" aria-valuemax="100">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
                                     style="width:65%"></div>
                             </div>
@@ -338,7 +347,6 @@
         </div>
     </section>
 
-    <!-- Jornada -->
     <section class="py-5" id="jornada">
         <div class="container py-5">
             <div class="text-center mb-5">
@@ -357,8 +365,10 @@
                             </h4>
                             <h6 class="card-subtitle text-primary mb-2">SENAI | 2026 (Em andamento)</h6>
                             <p class="card-text text-secondary small mb-0">
-                                Início da graduação tecnológica focada em arquitetura de software e engenharia
-                                moderna.
+                                Início da graduação tecnológica e ano de realizações próprias: depois do TCC, uma
+                                sequência de projetos agregadores (BarberDesk, G-Lab, HelpProf, FastChange, SENAI
+                                Tech Experience), primeiro contato prático com IA aplicada e estudos por conta
+                                própria fora da grade curricular.
                             </p>
                         </div>
                     </div>
@@ -375,7 +385,7 @@
                         </div>
                     </div>
 
-                    <div class="card bg-body-secondary border-0 border-start border-4 border-info shadow-sm">
+                    <div class="card bg-body-secondary border-0 border-start border-4 border-info shadow-sm mb-4">
                         <div class="card-body">
                             <span class="badge text-bg-info mb-2">Initial Commit: "The Sprint"</span>
                             <h4 class="card-title text-body-emphasis fw-bold">Ano Intensivo de Certificações</h4>
@@ -393,12 +403,38 @@
                         </div>
                     </div>
 
+                    <div class="card bg-body-secondary border-0 border-start border-4 border-warning shadow-sm mb-4">
+                        <div class="card-body">
+                            <span class="badge text-bg-warning text-dark mb-2">Commit: 1a2b3c (First Deploy)</span>
+                            <h4 class="card-title text-body-emphasis fw-bold">Primeiro Projeto: Social Recipes</h4>
+                            <h6 class="card-subtitle text-warning mb-2">Projeto pessoal | 2024</h6>
+                            <p class="card-text text-secondary small mb-0">
+                                Primeira aplicação completa do zero: rede social de receitas em ASP.NET MVC com SQL
+                                puro (sem ORM), decisão tomada de propósito para entender consultas na prática antes
+                                de confiar num Entity Framework.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-body-secondary border-0 border-start border-4 border-secondary shadow-sm">
+                        <div class="card-body">
+                            <span class="badge text-bg-secondary mb-2">git init</span>
+                            <h4 class="card-title text-body-emphasis fw-bold">
+                                Técnico em Desenvolvimento de Sistemas
+                            </h4>
+                            <h6 class="card-subtitle text-secondary mb-2">SENAI | Ingresso em 2024</h6>
+                            <p class="card-text text-secondary small mb-0">
+                                Primeiro contato formal com programação: lógica, banco de dados e as bases que
+                                sustentam tudo o que veio depois.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projetos -->
     <section class="py-5" id="projetos">
         <div class="container py-5">
 
@@ -417,8 +453,7 @@
 
                 <div class="col">
                     <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
-                        <img src="images/PortalReceitas.png" class="card-img-top" alt="Social Recipes"
-                            style="height:200px;object-fit:cover;">
+                        <img src="images/PortalReceitas.png" class="card-img-top card-img-fixed" alt="Social Recipes">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="badge text-bg-warning bg-opacity-75">Social Web</span>
@@ -451,8 +486,7 @@
 
                 <div class="col">
                     <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
-                        <img src="images/imagem1.jpg" class="card-img-top" alt="Sistema de Gestão SENAI"
-                            style="height:200px;object-fit:cover;">
+                        <img src="images/imagem1.jpg" class="card-img-top card-img-fixed" alt="Sistema de Gestão SENAI">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="badge text-bg-success bg-opacity-75">Enterprise</span>
@@ -478,6 +512,165 @@
                             <a href="https://github.com/JuanJorgeDEV/Gest-oOS.git" target="_blank" rel="noopener"
                                 class="btn btn-outline-primary btn-sm flex-fill">
                                 <i class="bi bi-code-slash me-2"></i>Ver código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
+                        <img src="images/BarberDesk.png" class="card-img-top card-img-fixed" alt="BarberDesk">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge text-bg-danger bg-opacity-75">Projeto Vendável</span>
+                                <small class="text-secondary font-monospace">v1.0</small>
+                            </div>
+                            <h4 class="card-title text-body-emphasis fw-bold">BarberDesk</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Plataforma de agendamento sob medida para barbearias, clínicas e salões: painel web
+                                de gestão + chatbot inteligente no WhatsApp para marcar, cancelar, remarcar e
+                                lembrar clientes automaticamente.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">.NET 8</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">EF Core</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">PostgreSQL</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">WhatsApp API</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-secondary-subtle d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal"
+                                data-bs-target="#modalBarberDesk">
+                                <i class="bi bi-info-circle me-2"></i>Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
+                        <img src="images/HelpProf.jpg" class="card-img-top card-img-fixed" alt="HelpProf">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge text-bg-info bg-opacity-75">Projeto de Extensão</span>
+                                <small class="text-secondary font-monospace">Protótipo</small>
+                            </div>
+                            <h4 class="card-title text-body-emphasis fw-bold">HelpProf</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Plataforma de microlearning para professores da rede pública: pílulas de suporte
+                                técnico, guias por ferramenta e assistente de IA (Lume) para dúvidas do dia a dia.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">FastAPI</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Python</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Supabase</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">IA</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-secondary-subtle d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal"
+                                data-bs-target="#modalHelpProf">
+                                <i class="bi bi-info-circle me-2"></i>Detalhes
+                            </button>
+                            <a href="https://github.com/JuanJorgeDEV/HelpProf" target="_blank" rel="noopener"
+                                class="btn btn-outline-primary btn-sm flex-fill">
+                                <i class="bi bi-github me-2"></i>Ver código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
+                        <img src="images/FastChange.png" class="card-img-top card-img-fixed" alt="FastChange">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge text-bg-secondary bg-opacity-75">Ferramenta Standalone</span>
+                                <small class="text-secondary font-monospace">Local</small>
+                            </div>
+                            <h4 class="card-title text-body-emphasis fw-bold">FastChange</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Agenda Escolar: aplicação local em Python que gera agendas semanais em Word a partir
+                                de um template, com histórico de alterações (undo) e importação/exportação em JSON.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Python</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Flask</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">docxtpl</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">PyInstaller</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-secondary-subtle d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal"
+                                data-bs-target="#modalFastChange">
+                                <i class="bi bi-info-circle me-2"></i>Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
+                        <img src="images/GLab.png" class="card-img-top card-img-fixed" alt="G-Lab">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge text-bg-success bg-opacity-75">Projeto Integrador</span>
+                                <small class="text-secondary font-monospace">Deploy: Render</small>
+                            </div>
+                            <h4 class="card-title text-body-emphasis fw-bold">G-Lab - Gestão de Ordens de Serviço</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Sistema web para gestão de ordens de serviço de equipamentos em laboratórios e
+                                salas de aula: evita chamados duplicados, equilibra a carga entre técnicos e
+                                cronometra o tempo real de cada atendimento.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">.NET 10</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">EF Core</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">PostgreSQL</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">AJAX</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-secondary-subtle d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal"
+                                data-bs-target="#modalGLab">
+                                <i class="bi bi-info-circle me-2"></i>Detalhes
+                            </button>
+                            <a href="https://github.com/JuanJorgeDEV/G-LAB" target="_blank" rel="noopener"
+                                class="btn btn-outline-primary btn-sm flex-fill">
+                                <i class="bi bi-github me-2"></i>Ver código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 bg-body-secondary border-secondary-subtle shadow-sm">
+                        <img src="images/SenaiTech.png" class="card-img-top card-img-fixed" alt="SENAI Tech Experience">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge text-bg-primary bg-opacity-75">Evento / Real-time</span>
+                                <small class="text-secondary font-monospace">Deploy: Render</small>
+                            </div>
+                            <h4 class="card-title text-body-emphasis fw-bold">SENAI Tech Experience</h4>
+                            <p class="card-text text-secondary small flex-grow-1">
+                                Quiz mobile-first: o estudante responde no celular e gera uma carta animada exibida
+                                em tempo real num telão, com dashboard e ranking ao vivo via SignalR.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">.NET</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">SignalR</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">PostgreSQL</span>
+                                <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Real-time</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-secondary-subtle d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm flex-fill" data-bs-toggle="modal"
+                                data-bs-target="#modalSenaiTech">
+                                <i class="bi bi-info-circle me-2"></i>Detalhes
+                            </button>
+                            <a href="https://github.com/JuanJorgeDEV/quizSenai" target="_blank" rel="noopener"
+                                class="btn btn-outline-primary btn-sm flex-fill">
+                                <i class="bi bi-github me-2"></i>Ver código
                             </a>
                         </div>
                     </div>
@@ -519,7 +712,6 @@
         </div>
     </section>
 
-    <!-- FAQ -->
     <section class="py-5" id="faq">
         <div class="container py-5">
             <div class="text-center mb-5">
@@ -605,27 +797,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="border-top border-secondary-subtle py-5" id="contato">
         <div class="container">
             <div class="row gy-4">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h5 class="text-body-emphasis fw-bold font-monospace mb-3">&lt;Juan Jorge/&gt;</h5>
                     <p class="text-secondary small">
                         Especialista na Stack Microsoft &amp; Soluções em Nuvem. Sempre aberto a novas oportunidades
                         e desafios.
                     </p>
                 </div>
-                <div class="col-md-4">
-                    <h6 class="text-body-emphasis text-uppercase small mb-3">Navegação</h6>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><a href="#sobre" class="link-secondary link-opacity-75 link-opacity-100-hover text-decoration-none">Sobre</a></li>
-                        <li><a href="#skills" class="link-secondary link-opacity-75 link-opacity-100-hover text-decoration-none">Skills</a></li>
-                        <li><a href="#jornada" class="link-secondary link-opacity-75 link-opacity-100-hover text-decoration-none">Jornada</a></li>
-                        <li><a href="#projetos" class="link-secondary link-opacity-75 link-opacity-100-hover text-decoration-none">Projetos</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h6 class="text-body-emphasis text-uppercase small mb-3">Contato &amp; Status</h6>
                     <p class="font-monospace text-secondary small mb-1">
                         <span class="text-success">user@portfolio:~$</span> build status: <span class="text-body-emphasis">success</span>
@@ -637,6 +819,9 @@
                         <a href="mailto:juanjorgedm@gmail.com" class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="E-mail">
                             <i class="bi bi-envelope-at"></i>
                         </a>
+                        <button type="button" class="btn btn-sm btn-outline-secondary rounded-circle btn-copy-email d-flex align-items-center justify-content-center p-0 icon-btn-26" data-email="juanjorgedm@gmail.com" title="Copiar e-mail">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
                         <a href="https://www.linkedin.com/in/juan-jorge-ba2711222" target="_blank" rel="noopener"
                             class="link-body-emphasis link-opacity-75 link-opacity-100-hover fs-5" title="LinkedIn">
                             <i class="bi bi-linkedin"></i>
@@ -655,7 +840,6 @@
         </div>
     </footer>
 
-    <!-- Modal: Social Recipes -->
     <div class="modal fade" id="modalProjeto1" tabindex="-1" aria-labelledby="modalProjeto1Label" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content bg-body-secondary">
@@ -664,7 +848,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="images/PortalReceitas.png" alt="Social Recipes" class="img-fluid rounded mb-3">
+                    <img src="images/PortalReceitas.png" alt="Social Recipes" class="img-fluid rounded mb-3 d-block mx-auto">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="badge text-bg-warning bg-opacity-75">Social Web</span>
                         <small class="text-secondary font-monospace">v1.0-Legacy</small>
@@ -692,7 +876,229 @@
         </div>
     </div>
 
-    <!-- Modal: GestaoOS -->
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-body-secondary">
+                <div class="modal-header border-secondary-subtle">
+                    <h5 class="modal-title text-body-emphasis fw-bold" id="modalContatoLabel">
+                        <i class="bi bi-envelope-at me-2 text-primary"></i>Fale comigo
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <form id="formContato">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="contatoNome" class="form-label text-secondary small">Nome</label>
+                            <input type="text" class="form-control" id="contatoNome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contatoEmail" class="form-label text-secondary small">Seu e-mail</label>
+                            <input type="email" class="form-control" id="contatoEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contatoMensagem" class="form-label text-secondary small">Mensagem</label>
+                            <textarea class="form-control" id="contatoMensagem" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-secondary-subtle">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-send-fill me-2"></i>Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBarberDesk" tabindex="-1" aria-labelledby="modalBarberDeskLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-body-secondary">
+                <div class="modal-header border-secondary-subtle">
+                    <h5 class="modal-title text-body-emphasis fw-bold" id="modalBarberDeskLabel">BarberDesk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/BarberDesk.png" alt="BarberDesk" class="img-fluid rounded mb-3 d-block mx-auto">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge text-bg-danger bg-opacity-75">Projeto Vendável</span>
+                        <small class="text-secondary font-monospace">v1.0</small>
+                    </div>
+                    <p class="text-secondary">
+                        Plataforma de agendamento sob medida para barbearias, clínicas e salões, unindo um painel
+                        web de gestão com automação inteligente via WhatsApp (Evolution API). Inclui agenda
+                        diária/semanal interativa, controle de pausas e expediente, cadastro de serviços e CRM
+                        automático de clientes, chatbot para agendar, cancelar e remarcar horários (com
+                        confirmação via "Sim/Não" direto no WhatsApp) e lembretes automáticos enviados 60 e 30
+                        minutos antes do horário — com janela de compensação caso o servidor fique offline.
+                    </p>
+                    <p class="text-secondary small fst-italic">
+                        Projeto vendável, sem repositório público. Interessado? Fale comigo pelo botão "Contato".
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">ASP.NET Core 8</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">EF Core</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">PostgreSQL</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">JWT</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">WhatsApp / Evolution API</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary-subtle">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" id="btnInteresseBarberDesk" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="bi bi-envelope-at me-2"></i>Tenho interesse
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalHelpProf" tabindex="-1" aria-labelledby="modalHelpProfLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-body-secondary">
+                <div class="modal-header border-secondary-subtle">
+                    <h5 class="modal-title text-body-emphasis fw-bold" id="modalHelpProfLabel">HelpProf</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/HelpProf.jpg" alt="HelpProf" class="img-fluid rounded mb-3 d-block mx-auto">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge text-bg-info bg-opacity-75">Projeto de Extensão</span>
+                        <small class="text-secondary font-monospace">Protótipo funcional</small>
+                    </div>
+                    <p class="text-secondary">
+                        Plataforma de microlearning para professores da rede pública, com dois tipos de conteúdo:
+                        pílulas curtas de suporte técnico e guias de domínio por ferramenta. Conta com o assistente
+                        de IA Lume para tirar dúvidas do dia a dia e um painel administrativo com CRUD autenticado.
+                        Arquitetura em três camadas — frontend estático, API em FastAPI (Python) e banco Supabase.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">FastAPI</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Python</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Supabase</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">HTML/CSS/JS</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">IA (Gemini)</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary-subtle">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="https://github.com/JuanJorgeDEV/HelpProf" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="bi bi-github me-2"></i>Ver código no GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalFastChange" tabindex="-1" aria-labelledby="modalFastChangeLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-body-secondary">
+                <div class="modal-header border-secondary-subtle">
+                    <h5 class="modal-title text-body-emphasis fw-bold" id="modalFastChangeLabel">FastChange</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/FastChange.png" alt="FastChange" class="img-fluid rounded mb-3 d-block mx-auto">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge text-bg-secondary bg-opacity-75">Ferramenta Standalone</span>
+                        <small class="text-secondary font-monospace">Local</small>
+                    </div>
+                    <p class="text-secondary">
+                        Agenda Escolar: aplicação web local em Python (Flask + docxtpl) que gera agendas semanais em
+                        Word a partir de um template, com histórico de alterações (undo), importação/exportação em
+                        JSON e empacotamento em executável standalone via PyInstaller — roda sem instalação ou
+                        acesso à internet.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Python</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Flask</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">docxtpl</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">PyInstaller</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary-subtle">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalGLab" tabindex="-1" aria-labelledby="modalGLabLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-body-secondary">
+                <div class="modal-header border-secondary-subtle">
+                    <h5 class="modal-title text-body-emphasis fw-bold" id="modalGLabLabel">G-Lab - Gestão de Ordens de Serviço</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/GLab.png" alt="G-Lab" class="img-fluid rounded mb-3 d-block mx-auto">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge text-bg-success bg-opacity-75">Projeto Integrador</span>
+                        <small class="text-secondary font-monospace">Deploy: Render</small>
+                    </div>
+                    <p class="text-secondary">
+                        Sistema web para gerenciar ordens de serviço de equipamentos em laboratórios e salas de
+                        aula. Centraliza o suporte técnico, evita a abertura de chamados duplicados para o mesmo
+                        equipamento e equilibra a carga de trabalho entre técnicos, limitando a execução a uma
+                        tarefa ativa por vez. Cronometra o tempo líquido gasto em cada serviço, pausando
+                        automaticamente em períodos de espera. Conta com controle de acesso por papéis
+                        (Administrador / Colaborador), cadastro e histórico de equipamentos e abertura inteligente
+                        de OS com autocomplete via AJAX.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">ASP.NET Core MVC (.NET 10)</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">EF Core</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">PostgreSQL (Supabase)</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Razor + Bootstrap</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">AJAX</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary-subtle">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="https://github.com/JuanJorgeDEV/G-LAB" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="bi bi-github me-2"></i>Ver código no GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalSenaiTech" tabindex="-1" aria-labelledby="modalSenaiTechLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-body-secondary">
+                <div class="modal-header border-secondary-subtle">
+                    <h5 class="modal-title text-body-emphasis fw-bold" id="modalSenaiTechLabel">SENAI Tech Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/SenaiTech.png" alt="SENAI Tech Experience" class="img-fluid rounded mb-3 d-block mx-auto">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge text-bg-primary bg-opacity-75">Evento / Real-time</span>
+                        <small class="text-secondary font-monospace">Deploy: Render</small>
+                    </div>
+                    <p class="text-secondary">
+                        Quiz mobile-first desenvolvido para um evento do SENAI: o estudante responde no próprio
+                        celular e o sistema gera uma "carta" animada que aparece em tempo real num telão, com
+                        dashboard e ranking ao vivo via SignalR. Backend em .NET/ASP.NET Core com PostgreSQL,
+                        hospedado no Render com banco de dados no Supabase.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">.NET / ASP.NET Core</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">SignalR</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">PostgreSQL (Supabase)</span>
+                        <span class="badge text-bg-dark border border-secondary-subtle font-monospace">Render</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary-subtle">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="https://github.com/JuanJorgeDEV/quizSenai" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="bi bi-github me-2"></i>Ver código no GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="modalProjeto2" tabindex="-1" aria-labelledby="modalProjeto2Label" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content bg-body-secondary">
@@ -701,7 +1107,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="images/imagem1.jpg" alt="Sistema de Gestão SENAI" class="img-fluid rounded mb-3">
+                    <img src="images/imagem1.jpg" alt="Sistema de Gestão SENAI" class="img-fluid rounded mb-3 d-block mx-auto">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="badge text-bg-success bg-opacity-75">Enterprise</span>
                         <small class="text-secondary font-monospace">v2.0.1</small>
@@ -731,10 +1137,63 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Ativação padrão do componente Tooltip do Bootstrap (exigida pela própria documentação oficial)
         document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (el) {
             new bootstrap.Tooltip(el);
         });
+
+        document.getElementById('formContato').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nome = document.getElementById('contatoNome').value;
+            const email = document.getElementById('contatoEmail').value;
+            const mensagem = document.getElementById('contatoMensagem').value;
+            const assunto = encodeURIComponent('Contato via portfólio — ' + nome);
+            const corpo = encodeURIComponent(mensagem + '\n\n— ' + nome + ' (' + email + ')');
+            window.location.href = 'mailto:juanjorgedm@gmail.com?subject=' + assunto + '&body=' + corpo;
+        });
+
+        document.querySelectorAll('.btn-copy-email').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const email = btn.dataset.email;
+                navigator.clipboard.writeText(email).then(function () {
+                    const icon = btn.querySelector('i');
+                    icon.classList.remove('bi-clipboard');
+                    icon.classList.add('bi-clipboard-check', 'text-success');
+                    setTimeout(function () {
+                        icon.classList.remove('bi-clipboard-check', 'text-success');
+                        icon.classList.add('bi-clipboard');
+                    }, 1500);
+                });
+            });
+        });
+
+        document.getElementById('btnInteresseBarberDesk').addEventListener('click', function () {
+            document.getElementById('modalBarberDesk').addEventListener('hidden.bs.modal', function handler() {
+                bootstrap.Modal.getOrCreateInstance(document.getElementById('modalContato')).show();
+                this.removeEventListener('hidden.bs.modal', handler);
+            });
+        });
+
+        (function () {
+            const root = document.documentElement;
+            const toggleBtn = document.getElementById('themeToggle');
+            const icon = toggleBtn.querySelector('i');
+
+            function applyTheme(theme) {
+                root.setAttribute('data-bs-theme', theme);
+                icon.classList.toggle('bi-sun-fill', theme === 'dark');
+                icon.classList.toggle('bi-moon-stars-fill', theme === 'light');
+            }
+
+            let saved;
+            try { saved = localStorage.getItem('theme'); } catch (e) { saved = null; }
+            applyTheme(saved === 'light' ? 'light' : 'dark');
+
+            toggleBtn.addEventListener('click', function () {
+                const next = root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(next);
+                try { localStorage.setItem('theme', next); } catch (e) { }
+            });
+        })();
     </script>
 </body>
 
